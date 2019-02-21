@@ -1,3 +1,11 @@
 .register-home{
-	background-color:yellow;
+	text-align:center;
+}
+
+footer {
+	font-size:10px;
+	position:absolute;
+	bottom:0;
+
+
 }
