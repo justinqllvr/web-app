@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 	before_action :authenticate_user!
-	def home
+
+	def index
+		@reports = Report.all
 	end	
 end
