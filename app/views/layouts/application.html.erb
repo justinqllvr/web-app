@@ -27,6 +27,9 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= reports_path %>">Reports</a>
       </li>
+      <li class="nav-item">
+        <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %>
+      </li>
     </ul>
   </div>
 </nav>

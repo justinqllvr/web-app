@@ -20,7 +20,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
-    redirect_to @report unless @report.user == current_user
+    redirect_to @report unless (@report.user == current_user) or (current_user.admin == true)
   end
 
   # POST /reports

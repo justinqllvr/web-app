@@ -22,7 +22,7 @@
         <td><%= report.latitude %></td>
         <td><%= report.longitude %></td>
         <td><%= link_to 'Show', report %></td>
-        <% if report.user == current_user %>
+        <% if report.user == current_user or (current_user.admin == true) %>
           <td><%= link_to 'Edit', edit_report_path(report) %></td>
           <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
