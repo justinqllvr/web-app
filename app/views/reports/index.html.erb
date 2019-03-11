@@ -1,6 +1,3 @@
-
-<p id="notice"><%= notice %></p>
-
 <h1>Reports</h1>
 
 <table class="table">
@@ -14,10 +11,8 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @reports.each do |report| %>
-    <p><%= report.likes.count %> <%= (report.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <tr>
         <td><%= report.title %></td>
         <td><%= report.text %></td>
@@ -25,15 +20,14 @@
         <td><%= report.longitude %></td>
         <td><%= report.likes.count %></td>
         <td><%= link_to 'Show', report %></td>
-        <% if report.user == current_user or (current_user.admin == true) %>
+        <% if report.user == current_user or current_user.admin %>
           <td><%= link_to 'Edit', edit_report_path(report) %></td>
           <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
- 
-</table>
+ </table>
 
 <br>
 
