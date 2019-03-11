@@ -15,6 +15,6 @@ class Report < ApplicationRecord
 	validates_presence_of :title, :text, :latitude, :longitude
 	mount_uploader :picture, ImageUploader
 	belongs_to :user
+	has_many :likes, dependent: :destroy
 end
-
 

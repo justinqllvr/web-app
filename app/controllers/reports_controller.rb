@@ -23,8 +23,8 @@ class ReportsController < ApplicationController
     redirect_to @report unless @report.user == current_user
   end
 
-  # POST /reports
-  # POST /reports.json
+  # report /reports
+  # report /reports.json
   def create
     @report = Report.create(report_params)
     @report.user = current_user
@@ -73,4 +73,10 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:title, :text, :latitude, :longitude, :picture)
     end
+
+    def already_liked?
+  Like.where(user_id: current_user.id, report_id:
+  params[:report_id]).exists?
+end
+
 end
