@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dzv2ju1js
+  api_key: '421531879272315'
+  api_secret: AZQ-nEBJbtbR-FMY4E5JY_XR0fI
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dzv2ju1js
+  api_key: '421531879272315'
+  api_secret: AZQ-nEBJbtbR-FMY4E5JY_XR0fI
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dzv2ju1js
+  api_key: '421531879272315'
+  api_secret: AZQ-nEBJbtbR-FMY4E5JY_XR0fI
+  enhance_image_tag: true
+  static_file_support: false

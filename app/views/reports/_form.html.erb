@@ -27,6 +27,10 @@
     <%= f.input :longitude, placeholder: "Longitude", :input_html => {
         :id => "longitude"
       } %>
+
+    <%= f.hidden_field(:picture_cache)%>
+    <%= f.file_field(:picture)%>
+
     <%= f.button :submit, value: "Enregistrer", class:"btn-success", disabled: true, id: "valider" %>
   <% end %>
     <div id="alert-localisation"></div>

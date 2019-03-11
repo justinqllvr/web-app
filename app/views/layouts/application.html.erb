@@ -6,13 +6,10 @@
     <title>Ma ville accessible</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZBpHXZJ47s2jgLcHA1kqSVY_2ya2Nuak&callback=initMap"
-    async defer></script>
-    
-
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script> <!--upload widget for unsigned uploads-->
   </head>
   <body>
     
@@ -28,7 +25,7 @@
         <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="reports">Reports</a>
+        <a class="nav-link" href="<%= reports_path %>">Reports</a>
       </li>
     </ul>
   </div>

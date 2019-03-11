@@ -20,13 +20,14 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
+    redirect_to @report unless @report.user == current_user
   end
 
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
-
+    @report = Report.create(report_params)
+    @report.user = current_user
     respond_to do |format|
       if @report.save
         format.html { redirect_to @report, notice: 'Report was successfully created.' }
@@ -70,6 +71,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:title, :text, :latitude, :longitude)
+      params.require(:report).permit(:title, :text, :latitude, :longitude, :picture)
     end
 end

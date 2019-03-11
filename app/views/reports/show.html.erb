@@ -19,6 +19,11 @@
   <strong>Longitude:</strong>
   <%= @report.longitude %>
 </p>
+<p>
+  <strong>Image:</strong>
+  <img src=<%=@report.picture %>>
+</p>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Edit', edit_report_path(@report) if @report.user == current_user %>
+
 <%= link_to 'Back', reports_path %>
