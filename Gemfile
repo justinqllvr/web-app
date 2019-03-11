@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'acts_as_votable', '~> 0.12.0'
 #simple_form
 gem 'simple_form'
 #jquery

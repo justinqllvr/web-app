@@ -18,5 +18,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   cattr_accessor :current_user
-  has_many :reports
+  has_many :likes, dependent: :destroy
 end

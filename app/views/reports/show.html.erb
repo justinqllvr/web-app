@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= @report.likes.count %> <%= (@report.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
 <p>
   <strong>Title:</strong>
   <%= @report.title %>
@@ -23,6 +25,13 @@
   <strong>Image:</strong>
   <img src=<%=@report.picture %>>
 </p>
+
+<% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', report_like_path(@report, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', report_likes_path(@report), method: :post %>
+<% end %>
 
 <%= link_to 'Edit', edit_report_path(@report) if @report.user == current_user %>
 
