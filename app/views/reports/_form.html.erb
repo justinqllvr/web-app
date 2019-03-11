@@ -17,7 +17,7 @@
         Quel problème voulez-vous signaler ?
       </div>
 
-    <%= f.input :title, placeholder: "Title", :label=> false %>
+    <%= f.input :title, placeholder: "Titre", :label=> false %>
 
     <%= f.input :text, placeholder: "Description", :label=> false %>
 
@@ -27,7 +27,7 @@
     <%= f.input :longitude, placeholder: "Longitude", :input_html => {
         :id => "longitude"
       } %>
-    <%= f.button :submit, value: "Enregistrer", class:"btn btn-success", disabled: true, id: "valider" %>
+    <%= f.button :submit, value: "Enregistrer", class:"btn-success", disabled: true, id: "valider" %>
   <% end %>
     <div id="alert-localisation"></div>
     <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
