@@ -4,7 +4,7 @@
 
 
 #map {
-	height: 93vh;
+	height: 90vh;
 	z-index: 0;
 }
 
@@ -36,5 +36,6 @@ nav{
 .btn-custom-blue{
 	background-color: #1491AF;
 	border-color:#1491AF;
+	color:white;
 }
 
