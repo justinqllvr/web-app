@@ -1,6 +1,9 @@
-<h1>Editing Report</h1>
-
-<%= render 'form', report: @report %>
-
-<%= link_to 'Show', @report %> |
-<%= link_to 'Back', reports_path %>
+<div class="card" style="width: 100%;">
+ <div class="card-body">
+     <h1>Modifie ton post !</h1>
+     <%= render 'form', report: @report %>
+     <p></p>
+    <div class="row justify-content-center" style="padding-top: 5px;"><%= link_to 'retour', reports_path, class: 'btn btn-outline-secondary'%>
+    <% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %></div>
+ </div>
+</div>
