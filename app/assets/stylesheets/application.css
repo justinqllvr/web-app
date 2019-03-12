@@ -5,6 +5,7 @@
 
 #map {
 	height: 93vh;
+	z-index: 0;
 }
 
 .card-body > img{
@@ -16,3 +17,24 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
+nav{
+	width: 100vw;
+}
+
+
+.new-report{
+	position:fixed;
+	z-index: 10;
+	bottom:5%;
+	left:50%;
+	transform: translate(-50%, -50%);
+
+
+}
+
+.btn-custom-blue{
+	background-color: #1491AF;
+	border-color:#1491AF;
+}
+
