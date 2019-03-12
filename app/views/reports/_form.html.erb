@@ -1,3 +1,5 @@
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
@@ -13,32 +15,50 @@
 
   <%= simple_form_for @report do |f| %>
 
-      <div>
-        Quel problème voulez-vous signaler ?
-      </div>
+<div>
+  Quel problème voulez-vous signaler ?
+</div>
 
-    <%= f.input :title, placeholder: "Titre", :label=> false %>
+<%= f.input :title, placeholder: "Titre", :label=> false %>
 
-    <%= f.input :text, placeholder: "Description", :label=> false %>
+<%= f.input :text, placeholder: "Description", :label=> false %>
 
-    <%= f.input :latitude, placeholder: "Latitude", :input_html => {
-        :id => "latitude"
-      } %>
-    <%= f.input :longitude, placeholder: "Longitude", :input_html => {
-        :id => "longitude"
-      } %>
+<%= f.input :latitude, placeholder: "Latitude", :input_html => {
+    :id => "latitude"
+  } %>
+<%= f.input :longitude, placeholder: "Longitude", :input_html => {
+    :id => "longitude"
+  } %>
 
-    <%= f.hidden_field(:picture_cache)%>
-    <%= f.file_field(:picture)%>
+<!-- <%= f.hidden_field(:picture_cache)%>
+<%= f.file_field(:picture)%> -->
 
-    <%= f.button :submit, value: "Enregistrer", class:"btn-success", disabled: true, id: "valider" %>
-  <% end %>
-    <div id="alert-localisation"></div>
-    <button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
+<%= f.button :submit, value: "Enregistrer", class:"btn-success", disabled: true, id: "valider" %>
+<% end %>
+
+<div id="alert-localisation"></div>
+<button class="btn btn-outline-success" id="btn-loc">Localiser position</button>
+<button id="upload_widget" class="btn cloudinary-button">Upload files</button>
 
   
 <% end %>
-<script type="text/javascript">
+
+
+<!-- Cloudinary's upload button script-->
+<script type="text/javascript">  
+  var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dzv2ju1js', 
+    uploadPreset: 'my_preset'}, (error, result) => { console.log(error, result) })
+
+  document.getElementById("upload_widget").addEventListener("click", function(){
+    myWidget.open();
+  }, false);
+</script>
+
+
+
+<!-- Localisation script-->
+<script type="text/javascript"> 
   window.onload = function() {
   var btn = document.getElementById("btn-loc");
   var long = document.getElementById("longitude");

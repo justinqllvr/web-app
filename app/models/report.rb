@@ -16,5 +16,7 @@ class Report < ApplicationRecord
 	mount_uploader :picture, ImageUploader
 	belongs_to :user
 	has_many :likes, dependent: :destroy
+
+
 end
 
