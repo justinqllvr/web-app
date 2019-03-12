@@ -2,17 +2,17 @@
 	text-align:center;
 }
 
-footer {
-	font-size:10px;
-	position:absolute;
-	bottom:0;
-}
 
 #map {
-	height: 500px;
+	height: 93vh;
 }
 
 .card-body > img{
-	width:90%;
+	width:88%;
 	align-content: center;
+}
+
+.container {
+	padding-left: 0px;
+	padding-right: 0px;
 }

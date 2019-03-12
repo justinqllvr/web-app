@@ -2,6 +2,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZBpHXZJ47s2jgLcHA1kqSVY_2ya2Nuak&callback=initMap"async defer></script> <!--Google Map API-->
 <script>
 function initMap() {
+
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 44.841637, lng: -0.569082},
         zoom: 12
@@ -12,9 +13,11 @@ function initMap() {
         });
         marker.setMap(map);
     <% end %>
+
 }
 </script>
 
-<%= link_to "Faire un signalement", reports_url %>
+
 <footer>
+    <%= link_to "Faire un signalement", reports_url %>
 </footer>
