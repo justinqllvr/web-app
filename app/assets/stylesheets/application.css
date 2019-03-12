@@ -11,3 +11,8 @@ footer {
 #map {
 	height: 500px;
 }
+
+.card-body > img{
+	width:90%;
+	align-content: center;
+}

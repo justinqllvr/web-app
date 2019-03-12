@@ -3,6 +3,9 @@
 <div class="card" style="width: 18rem;">
   <img src=<%=@report.picture %>> 
   <div class="card-body">
+    <%= cl_image_tag("sample.png", :secure=>true, :transformation=>[
+  {:width=>50, :height=>50, :gravity=>"face",}])%>
+
     <h5 class="card-title"><%= @report.title %></h5>
     <p class="card-text"><%= @report.text %></p>
     <p class="card-text"><%= @report.likes.count %> <%= (@report.likes.count) == 1 ? 'membre.s ont aimé ce post !' : 'membre.s ont aimé ce post !'%></p>
