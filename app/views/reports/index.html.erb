@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-md-6">
             <%= link_to report do %>
-              <%= image_tag report.picture.url, class: 'img-fluid' %>
+              <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid' %>
             <% end %>
           </div>
           <div class="col-md-4">
