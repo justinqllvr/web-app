@@ -12,10 +12,12 @@
     <%= f.text_field :name, autofocus: true %>
   </div>
 
+  </br>
   <div class="field">
     <%= f.label :Email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  </br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -29,11 +31,13 @@
       <em><%= @minimum_password_length %> caractères minimum</em>
     <% end %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :confirmation_du_mot_de_passe %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  </br>
 
   <div class="field">
     <%= f.label :mot_de_passe_actuel %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer les changements)</i><br />
