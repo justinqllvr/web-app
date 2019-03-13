@@ -1,67 +1,50 @@
-<br>
-<div class="row justify-content-center" style="padding-top: 5px;"><button class="btn btn-outline-success" id="btn-loc">Localiser position</button></div> 
-<br>
-
- <p style="text-align: center;">Quel problème voulez signaler ?</p>
+<p>Quel problème voulez signaler ?</p>
 
 <%= simple_form_for @report do |f| %>
-
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :title, placeholder: "Titre", :label=> false %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :text, placeholder: "Description", :label=> false %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :latitude, placeholder: "Latitude", :input_html => { :id => "latitude" } %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :longitude, placeholder: "Longitude", :input_html => { :id => "longitude" } %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :picture %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.button :submit, value: "Enregistrer", class:"btn-success", id: "valider" %></div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :title, placeholder: 'Titre du signalement' %>
+      <%= f.input :text, placeholder: 'Description du signalement' %>
+      <%= f.input :picture %>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-outline-success" id="btn-loc">Localiser votre position</button> 
+      <div id="alert-localisation"></div>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
+    </div>
+  </div>
+  <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
 <% end %>
 
-<div id="alert-localisation"></div>
 
 
 <!-- Localisation script-->
 <script type="text/javascript">
- window.onload = function() {
+window.onload = function() {
  var btn = document.getElementById("btn-loc");
- var long = document.getElementById("longitude");
- var lat = document.getElementById("latitude");
+ var long = document.getElementById("report_longitude");
+ var lat = document.getElementById("report_latitude");
  var alertLoc = document.getElementById("alert-localisation");
 
  btn.addEventListener("click", getLocation);
 
 
- function getLocation() {
-   if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(showPosition);
-     // navigator.geolocation.watchPosition(showPosition, showError);
-   } else {
-     alertLoc.innerHTML = "Geolocation is not supported by this browser.";
-   }
+  function getLocation(event) {
+    event.preventDefault();
 
-   function showPosition(position) {
-     console.log('position');
-     lat.value = position.coords.latitude;
-     long.value = position.coords.longitude;
-
-     document.getElementById("valider").disabled = false;
-
-   }
-
-   function showError(error) {
-     console.log('error');
-     switch(error.code) {
-       case error.PERMISSION_DENIED:
-         alertLoc.innerHTML = "User denied the request for Geolocation."
-         break;
-       case error.POSITION_UNAVAILABLE:
-         alertLoc.innerHTML = "Location information is unavailable."
-         break;
-       case error.TIMEOUT:
-         alertLoc.innerHTML = "The request to get user location timed out."
-         break;
-       case error.UNKNOWN_ERROR:
-         alertLoc.innerHTML = "An unknown error occurred."
-         break;
-     }
-   }
- }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      // navigator.geolocation.watchPosition(showPosition, showError);
+    } else {
+      alertLoc.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function showPosition(position) {
+    lat.value = position.coords.latitude;
+    long.value = position.coords.longitude;
+  }
 }
 </script>
+
+</div>

@@ -1,8 +1,13 @@
 
+<div class="register1">
+</br>
+
+  <h2>Editer <%= resource_name.to_s.humanize %></h2>
+
+
 <div class="g-content">
 
   <h1>Edit <%= resource_name.to_s.humanize %></h1>
-
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>

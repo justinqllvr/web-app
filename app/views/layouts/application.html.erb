@@ -40,6 +40,9 @@
         <li class="nav-item<%= ' active' if request.path == reports_path %>">
           <%= link_to "Signalements prioritaires", reports_path, class: "nav-link smooth-scroll" %>
         </li>
+        <li class="nav-item<%= ' active' if request.path == new_report_path %>">
+          <%= link_to "Faire un signalement", new_report_path, class: "nav-link smooth-scroll" %>
+        </li>
         <li class="nav-item<%= ' active' if request.path == my_reports_path %>">
           <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
         </li>
