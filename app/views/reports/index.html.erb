@@ -16,6 +16,9 @@
             </div>
             <div class="col-md-2">
               <%= report.likes.count %> likes
+              <%if current_user.admin%>
+              <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'%>
+              <%end%>
             </div>
           </div>
         </li>
