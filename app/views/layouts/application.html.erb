@@ -18,52 +18,54 @@
   </head>
   <body>
     
-<div class="container">
+<div class="container-fluid">
 
 
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/"><strong>Ma Ville Accessible</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/"><strong>Ma Ville Accessible</strong></a>
 
-  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a>
-        
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Demandes", reports_path, class: "nav-link smooth-scroll" %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 
+      <ul class="navbar-nav mr-auto">
 
-    <ul class="nav navbar-nav navbar-right">
-          
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a> 
+        </li>
 
-          <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to "Editer le profil", edit_user_registration_path, class: "btn btn-light" %></li>
-              <li class="nav-item"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
-          <% else %>
-              <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-light" %></li>
-              <p></p> 
-              <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "btn btn-success" %></li>
+        <li class="nav-item active">
+          <%= link_to "Demandes", reports_path, class: "nav-link smooth-scroll" %>
+        </li>
 
-          <% end %>
-
-    </ul>
-
-  </div>
+      </ul>
 
 
-</nav>
+      <ul class="nav navbar-nav navbar-right">
+            
 
-</div>
+            <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to "Editer le profil", edit_user_registration_path, class: "btn btn-light" %></li>
+                <li class="nav-item"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+            <% else %>
+                <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-light" %></li>
+                <p></p> 
+                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "btn btn-success" %></li>
+
+            <% end %>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
 
 <%= yield %>
+</div>
 
 
 </body>

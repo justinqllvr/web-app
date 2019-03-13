@@ -13,14 +13,15 @@
 	align-content: center;
 }
 
-.container {
-	padding-left: 0px;
-	padding-right: 0px;
-}
 
-nav{
-	width: 100vw;
-}
+/*
+.container {
+	padding-left: : 0px;
+	padding-right: 0px;
+	clear: both;
+} */
+
+
 
 
 .new-report{
@@ -33,9 +34,12 @@ nav{
 
 }
 
+/*
+
 .btn-custom-blue{
 	background-color: grey;
 	border-color:grey;
 	color:white;
 }
 
+*/
