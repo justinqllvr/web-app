@@ -13,14 +13,6 @@
 	align-content: center;
 }
 
-.container {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
-nav{
-	width: 100vw;
-}
 
 
 .new-report{
@@ -32,14 +24,17 @@ nav{
 
 
 }
-
-.btn-custom-blue{
-	background-color: grey;
-	border-color:grey;
-	color:white;
+.register1{
+	background-color: #EEEEEE;
+	text-align: center;
+	padding-top: 1em;
 }
+
+
+
 
 .thumbnail{
 	height:13rem;
 }
+
 
