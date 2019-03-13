@@ -3,26 +3,28 @@
   <br>
   <ul class="list-unstyled">
     <% @reports.each do |report| %>
-      <%= link_to report do %>
-        <li class="media mb-5">
-          <div class="row">
-            <div class="col-md-6">
+      <li class="mb-5">
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to report do %>
               <%= image_tag report.picture.url, class: 'img-fluid' %>
-            </div>
-            <div class="col-md-4">
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to report do %>
               <h2 class="mb-1"><%= report.title %></h2>
               <%= report.text %>
               <%= report.user %>
-            </div>
-            <div class="col-md-2">
-              <%= report.likes.count %> likes
-              <%if current_user&.admin%>
-              <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'%>
-              <%end%>
-            </div>
+            <% end %>
           </div>
-        </li>
-      <% end %>
+          <div class="col-md-2">
+            <%= report.likes.count %> likes
+            <% if current_user&.admin%>
+            <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'%>
+            <%end%>
+          </div>
+        </div>
+      </li>
     <%end%>
   </ul>
 </div>
