@@ -1,3 +1,4 @@
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZBpHXZJ47s2jgLcHA1kqSVY_2ya2Nuak&callback=initMap"async defer></script>
 <div class="container-fluid">
   <div class="row">
@@ -10,10 +11,12 @@
       <%= link_to 'Back', reports_path, class: 'btn btn-outline-secondary'%>
       <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
       <div class="dislikeandlikebutton">
+        <% if current_user %>
          <% if existing_like %>
           <%= button_to 'Unlike', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger btn-lg' %>
          <% else %>
            <%= button_to 'Like', report_likes_path(@report), method: :post, class: 'btn btn-primary btn-lg' %>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -38,4 +41,5 @@
     </div>
   </div>
 </div>
+
 
