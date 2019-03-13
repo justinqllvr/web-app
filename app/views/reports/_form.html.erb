@@ -1,10 +1,12 @@
-<%= simple_form_for @report do |f| %>
- <div class="form-group  ">Quel problème voulez signaler ?</div>
+<div class="register1">
+
+  <%= simple_form_for @report do |f| %>
+ <div class="form-group  ">Quel problème voulez-vous signaler ?</div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :title, placeholder: "Titre", :label=> false %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :text, placeholder: "Description", :label=> false %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :latitude, placeholder: "Latitude", :input_html => { :id => "latitude" } %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :longitude, placeholder: "Longitude", :input_html => { :id => "longitude" } %></div>
-  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :picture %></div>
+  <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :Photo %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.button :submit, value: "Enregistrer", class:"btn-success", id: "valider" %></div>
 <% end %>
 
@@ -59,3 +61,5 @@
  }
 }
 </script>
+
+</div>
