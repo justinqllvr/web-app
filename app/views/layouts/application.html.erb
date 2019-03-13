@@ -49,12 +49,12 @@
             
 
             <% if user_signed_in? %>
-                <li class="nav-item"><%= link_to "Editer le profil", edit_user_registration_path, class: "btn btn-light" %></li>
-                <li class="nav-item"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+                <li class="nav-item"><%= link_to "Editer le profil ", edit_user_registration_path, class: "" %></li> 
+                <li class="nav-item"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "" %></li>
             <% else %>
-                <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-light" %></li>
+                <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "" %></li>
                 <p></p> 
-                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "btn btn-success" %></li>
+                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "" %></li>
 
             <% end %>
 
@@ -64,9 +64,6 @@
 
   </nav>
   <div class="icon"><%= link_to image_tag("iconMVA.png", :alt => "icon" ), root_path%></div>
-</div>
-
-<div class="container-fluid" style="margin-top: 8vh;">
 <%= yield %>
 </div>
 

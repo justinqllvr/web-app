@@ -1,6 +1,9 @@
-<h1>Poste ton problème</h1>
+<div class="container g-content">
+	<h1>Poste ton problème</h1>
 
-<%= render 'form', report: @report %>
+	<%= render 'form', report: @report %>
 
-<div class="row justify-content-center" style="padding-top: 5px;"><%= link_to 'retour', reports_path, class: 'btn btn-outline-secondary'%>
-    <% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %></div>
+	<div class="row justify-content-center" style="padding-top: 5px;"><%= link_to 'retour', reports_path, class: 'btn btn-outline-secondary'%>
+	    <% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %></div>
+
+</div>
