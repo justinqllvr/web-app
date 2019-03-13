@@ -1,5 +1,11 @@
+<br>
+<div class="row justify-content-center" style="padding-top: 5px;"><button class="btn btn-outline-success" id="btn-loc">Localiser position</button></div> 
+<br>
+
+ <p style="text-align: center;">Quel problème voulez signaler ?</p>
+
 <%= simple_form_for @report do |f| %>
- <div class="form-group  ">Quel problème voulez signaler ?</div>
+
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :title, placeholder: "Titre", :label=> false %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :text, placeholder: "Description", :label=> false %></div>
   <div class="row justify-content-center" style="padding-top: 5px;"><%= f.input :latitude, placeholder: "Latitude", :input_html => { :id => "latitude" } %></div>
@@ -9,7 +15,7 @@
 <% end %>
 
 <div id="alert-localisation"></div>
-<div class="row justify-content-center" style="padding-top: 5px;"><button class="btn btn-outline-success" id="btn-loc">Localiser position</button></div>
+
 
 <!-- Localisation script-->
 <script type="text/javascript">

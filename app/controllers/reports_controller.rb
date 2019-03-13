@@ -5,7 +5,11 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.left_joins(:likes).group(:id).order('COUNT(likes.id) DESC')
+  end
+
+  def my
+    @reports = current_user.reports
   end
 
   # GET /reports/1

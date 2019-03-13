@@ -3,7 +3,7 @@
 
 	<%= render 'form', report: @report %>
 
-	<div class="row justify-content-center" style="padding-top: 5px;"><%= link_to 'retour', reports_path, class: 'btn btn-outline-secondary'%>
+	<div class="row justify-content-center" style="padding-top: 5px;">
 	    <% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %></div>
 
 </div>

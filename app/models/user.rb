@@ -21,4 +21,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   cattr_accessor :current_user
   has_many :likes, dependent: :destroy
+  has_many :reports, dependent: :destroy
+
+  def to_s
+  	"#{name} (#{email})"
+  end
 end
