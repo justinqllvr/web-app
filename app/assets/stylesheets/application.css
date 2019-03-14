@@ -62,3 +62,12 @@ h1{
 }
 
 
+input {
+	border-radius: 40px;
+	border-style: none;
+	text-align: center;
+}
+
+.bg{
+      background: #F2F2F2;   
+}
