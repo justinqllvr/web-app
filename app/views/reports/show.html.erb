@@ -8,7 +8,7 @@
       <p><%= @report.text %></p>
       <p><%= @report.likes.count %> <%= (@report.likes.count) == 1 ? 'membre.s ont aimé ce post !' : 'membre.s ont aimé ce post !'%></p>
       <% if current_user %>
-        <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user %>
+        <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %>
         <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
         <div class="dislikeandlikebutton">
           <% if existing_like %>
