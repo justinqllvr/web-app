@@ -1,37 +1,33 @@
 <div class="register1 mt-5">
   <%= image_tag("male.png", :alt => "icon register") %>
-  <h2>S'inscrire</h2>
+  <h2 class="mt-2">S'inscrire</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <br />
     <div class="field">
-      <%= f.label :Nom %>
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.text_field :name, autofocus: true, placeholder: 'Nom : Dupont'  %>
     </div>
     <br />
     <div class="field">
-      <%= f.label :Email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-mail : xxxxxx@xxxcom' %>
     </div>
     <br />
     <div class="field">
-      <%= f.label :Mot_de_passe %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caractères minimum)</em>
+      <em>(<%= @minimum_password_length %> caractères minimum)<br></em>
       <% end %>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Mot de passe : ******'  %>
     </div>
     
     <br />
 
     <div class="field">
-      <%= f.label :Confirmation_du_mot_de_passe %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmer le mdp'  %>
     </div>
     <br />
-    <div class="actions">
+    <div class="actions mt">
       <%= f.submit "S'inscrire" %>
     </div>
   <% end %>
-  <%= render "devise/shared/links" %>
+  <div class="mt-3"><%= render "devise/shared/links" %></div>
 </div>
