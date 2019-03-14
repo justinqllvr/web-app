@@ -20,7 +20,7 @@ class Report < ApplicationRecord
 	belongs_to :city, optional: true
 	has_many :likes, dependent: :destroy
 
-	validates_presence_of :title, :text, :latitude, :longitude
+	validates_presence_of :title, :latitude, :longitude
 
 	scope :ordered_by_likes, -> { left_joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
 

@@ -78,13 +78,6 @@ a {
 	}
 }
 
-input {
-	border-radius: 40px;
-	border-style: none;
-	text-align: center;
-	background-color: #F2F2F2;
-}
-
 .inscrire{
 	background-image: linear-gradient(#8B5CFB, #5574D9,#188FB1);
 	height: 80vh;
@@ -101,3 +94,11 @@ input {
 	}
 }
 
+.partenaire > a > img {
+     height: 100px;
+ }
+
+.dropdown{
+    position:absolute;
+    right:10px;
+}
