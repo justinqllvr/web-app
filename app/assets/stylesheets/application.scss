@@ -22,7 +22,7 @@
 
 
 .new-report{
-	position:fixed;
+	position:absolute;
 	z-index: 10;
 	bottom:5%;
 	left:50%;
@@ -101,4 +101,9 @@ a {
 .dropdown{
     position:absolute;
     right:10px;
+}
+
+.partenaires > div > img {
+	width:15vw;
+	margin: auto;
 }

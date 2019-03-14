@@ -51,18 +51,15 @@
             </li>
             -->
           <% if user_signed_in? %>
-          <div class="dropdown">
-               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
-                         <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
-                         
-                             <li>
-                             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-light btn-sm" %>
-                            </li>
-                    </div>
-          <% else %>
+          <div class="dropdown dropleft">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link smooth-scroll" %>
+            </div>
           </div>
+          <% else %>
           </ul>
           <ul class="nav navbar-nav navbar-right">            
               <li class="nav-item mr-2">
@@ -81,5 +78,6 @@
       <%= yield %>
 
     </div>
+    
   </body>
 </html>
