@@ -11,11 +11,14 @@ function initMap() {
           url: '<%= report_path(report) %>'
         });
         marker.setMap(map);
-    <% end %>
+
     
     google.maps.event.addListener(marker, 'click', function() {
         window.location.href = this.url;
     });
+
+    <% end %>
+    
      if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
