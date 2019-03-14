@@ -1,7 +1,17 @@
-<div class="register1 mt-5">
-  <%= image_tag("male.png", :alt => "icon register") %>
-  <h2 class="mt-2">S'inscrire</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="register1 mt-5" >
+  <div class="row">
+    <div class="d-flex col-md-6 inscrire border">
+      <div style="margin:auto;">
+      <h2 style="color: #F2F2F2;">Inscrivez Vous !<br>Soyez plus qu'un passant!</h2>   
+      <p class=" text-justify mr-3 ml-3 mt-5" style="color: #F2F2F2;;">Ma ville accessible est une application mobile de mise en relation permettant de signaler le manque d’accessibilité d’un site afin de prévenir une autorité (association, mairie)  
+     Cette signalisation peut être faite à l’aide d’une photo ou simplement grâce aux coordonnées géographique suivi d’une courte description.</p> 
+     </div>
+    </div> 
+
+  <div class="d-flex col-md-6 border">
+    <div style="margin:auto;">
+    <h2 style="color: black;">Vos informations</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <br />
     <div class="field">
@@ -9,7 +19,7 @@
     </div>
     <br />
     <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-mail : xxxxxx@xxxcom' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'E-mail : exemple@xxx.com' %>
     </div>
     <br />
     <div class="field">
@@ -30,4 +40,7 @@
     </div>
   <% end %>
   <div class="mt-3"><%= render "devise/shared/links" %></div>
+</div>
+</div>
+</div>
 </div>
