@@ -12,11 +12,11 @@
       <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
       <div class="dislikeandlikebutton">
         <% if current_user %>
-         <% if existing_like %>
+          <% if existing_like %>
           <%= button_to 'Unlike', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger btn-lg' %>
-         <% else %>
+          <% else %>
            <%= button_to 'Like', report_likes_path(@report), method: :post, class: 'btn btn-primary btn-lg' %>
-        <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>

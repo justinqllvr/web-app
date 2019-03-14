@@ -45,9 +45,9 @@
  }
 
 .icon > a > img{
-    height: 60px;
+    height: 65px;
     margin-left: 50%;
-    transform: translate(-75%, -50%);
+    transform: translate(-75%, -85%);
     position: absolute;
     z-index: 10;
 
