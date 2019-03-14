@@ -1,0 +1,15 @@
+<div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
+	<h1><%= @city.name %></h1>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+
+	</div>
+	<div class="col-md-6">
+		<div class="row">
+			<%= render @city.reports.ordered_by_likes %>
+		</div>
+	</div>
+</div>
+

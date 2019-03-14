@@ -24,6 +24,6 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
 
   def to_s
-  	"#{name} (#{email})"
+  	"#{name}"
   end
 end

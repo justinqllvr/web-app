@@ -1,0 +1,14 @@
+<div class="col-md-3 mb-3">
+  <%= link_to report do %>
+    <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid' %>
+    <h2 class="mb-1"><%= report.title %></h2>
+    <span class="badge badge-primary"><%= report.likes.count %> likes</span>
+    <p><%= report.text %></p>
+    <p class="text-muted">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
+  <% end %>
+  <% if current_user&.admin%>
+    <div>
+      <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'%>
+    </div>
+  <% end %>
+</div>

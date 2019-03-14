@@ -2,7 +2,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script> <!--Google Map API-->
 <script>
 function initMap() {
-
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 44.841637, lng: -0.569082},
         zoom: 12
@@ -21,4 +20,4 @@ function initMap() {
 }
 </script>
 
-    <%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>
+<%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>

@@ -14,70 +14,64 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
   </head>
+  <body>
+    <div class="container-fluid">
 
-
-<body>
-    
-<div class="container-fluid">
-
-
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
-
+      <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 
-      <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item<%= ' active' if request.path == root_path %>">
-          <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a> 
-        </li>
-        <li class="nav-item<%= ' active' if request.path == reports_path %>">
-          <%= link_to "Signalements prioritaires", reports_path, class: "nav-link smooth-scroll" %>
-        </li>
-        <li class="nav-item<%= ' active' if request.path == new_report_path %>">
-          <%= link_to "Faire un signalement", new_report_path, class: "nav-link smooth-scroll" %>
-        </li>
-        <li class="nav-item<%= ' active' if request.path == my_reports_path %>">
-          <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
-        </li>
-        <!--
-        <li class="nav-item">
-          <%= link_to "Contact", new_report_path, class: "nav-link smooth-scroll" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Réglages", new_report_path, class: "nav-link smooth-scroll" %>
-        </li>
-        -->
-      </ul>
-
-
-      <ul class="nav navbar-nav navbar-right">
-            
-
+            <li class="nav-item<%= ' active' if request.path == root_path %>">
+              <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a> 
+            </li>
+            <li class="nav-item<%= ' active' if request.path == reports_path %>">
+              <%= link_to "Signalements prioritaires", reports_path, class: "nav-link smooth-scroll" %>
+            </li>
+            <li class="nav-item<%= ' active' if request.path == new_report_path %>">
+              <%= link_to "Faire un signalement", new_report_path, class: "nav-link smooth-scroll" %>
+            </li>
+            <li class="nav-item<%= ' active' if request.path == my_reports_path %>">
+              <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
+            </li>
+            <li class="nav-item<%= ' active' if request.path == cities_path %>">
+              <%= link_to "Villes", cities_path, class: "nav-link smooth-scroll" %>
+            </li>
+            <!--
+            <li class="nav-item">
+              <%= link_to "Contact", new_report_path, class: "nav-link smooth-scroll" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Réglages", new_report_path, class: "nav-link smooth-scroll" %>
+            </li>
+            -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-                <li class="nav-item"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "" %></li>
+              <li class="nav-item">
+                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-light btn-sm" %>
+              </li>
             <% else %>
-                <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "" %></li>
-                <p></p> 
-                <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "" %></li>
-
+              <li class="nav-item">
+                <%= link_to "S'inscrire", new_user_registration_path, class: "" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Se connecter", new_user_session_path, class: "" %>
+              </li>
             <% end %>
+          </ul>
+        </div>
+      </nav>
 
-      </ul>
+      <div class="icon"><%= link_to image_tag("iconMVA.png", :alt => "icon" ), root_path%></div>
+
+      <%= yield %>
 
     </div>
-
-  </nav>
-  <div class="icon"><%= link_to image_tag("iconMVA.png", :alt => "icon" ), root_path%></div>
-<%= yield %>
-</div>
-
-
-</body>
+  </body>
 </html>
