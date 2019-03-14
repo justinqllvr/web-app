@@ -3,7 +3,7 @@
 <script>
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12
+        zoom: 13
     });  
     <% @reports.each do |report| %>
         var marker = new google.maps.Marker({
@@ -11,6 +11,7 @@ function initMap() {
           url: '<%= report_path(report) %>'
         });
         marker.setMap(map);
+    <% end %>
     
     google.maps.event.addListener(marker, 'click', function() {
         window.location.href = this.url;
@@ -38,7 +39,7 @@ function initMap() {
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
-    <% end %>
+    
 }
 </script>
 
