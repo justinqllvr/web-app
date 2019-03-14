@@ -1,0 +1,22 @@
+<li class="mb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to report do %>
+          <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid' %>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to report do %>
+          <h2 class="mb-1"><%= report.title %></h2>
+          <%= report.text %>
+          <%= report.user %>
+        <% end %>
+        <div>
+          <span class="badge badge-primary"><%= report.likes.count %> likes</span>
+          <% if current_user&.admin%>
+            <%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'%>
+            <%end%>
+        </div>
+      </div>
+    </div>
+</li>
