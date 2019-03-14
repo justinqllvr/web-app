@@ -51,7 +51,7 @@
             </li>
             -->
           <% if user_signed_in? %>
-          <div class="dropdown">
+          <div class="dropdown dropleft">
                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                          <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
