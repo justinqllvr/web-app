@@ -10,13 +10,15 @@ function initMap() {
     <% @reports.each do |report| %>
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(<%= report.latitude %>, <%= report.longitude %>),
+          url: '<%= report_path(report) %>'
         });
         marker.setMap(map);
     <% end %>
-
+    
+    google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = this.url;
+    });
 }
 </script>
-
-
 
     <%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>

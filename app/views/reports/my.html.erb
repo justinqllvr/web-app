@@ -1,9 +1,9 @@
 <div class="container g-content" >
   <h1>Mes signalements</h1>
-  <div class="row mt-5">
+  <div class="row">
     <% @reports.each do |report| %>
       <%= link_to report do %>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-5">
           <%= image_tag report.picture.url, class: 'img-fluid' %>
           <h2><%= report.title %></h2>
           <p><%= report.text %></p>

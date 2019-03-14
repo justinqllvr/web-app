@@ -1,18 +1,45 @@
-<div class="container">
-   <%= image_tag @report.picture.url, class: 'img-fluid' %>
-   <h1><%= @report.title %></h1>
-   <p><%= @report.text %></p>
-   <p><%= @report.likes.count %> <%= (@report.likes.count) == 1 ? 'membre.s ont aimé ce post !' : 'membre.s ont aimé ce post !'%></p>
-    <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user %>
-    <%= link_to 'Back', reports_path, class: 'btn btn-outline-secondary'%>
-    <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
-    <div class="dislikeandlikebutton">
-       <% if existing_like %>
-        <%= button_to 'Unlike', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger btn-lg' %>
-       <% else %>
-         <%= button_to 'Like', report_likes_path(@report), method: :post, class: 'btn btn-primary btn-lg' %>
-      <% end %>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZBpHXZJ47s2jgLcHA1kqSVY_2ya2Nuak&callback=initMap"async defer></script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 mt-5">
+     <%= image_tag @report.picture.url(angle: :exif), class: 'img-fluid' %>
+     <h1 class="mt-3"><%= @report.title %></h1>
+     <p><%= @report.text %></p>
+     <p><%= @report.likes.count %> <%= (@report.likes.count) == 1 ? 'membre.s ont aimé ce post !' : 'membre.s ont aimé ce post !'%></p>
+      <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user %>
+      <%= link_to 'Back', reports_path, class: 'btn btn-outline-secondary'%>
+      <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
+      <div class="dislikeandlikebutton">
+        <% if current_user %>
+         <% if existing_like %>
+          <%= button_to 'Unlike', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger btn-lg' %>
+         <% else %>
+           <%= button_to 'Like', report_likes_path(@report), method: :post, class: 'btn btn-primary btn-lg' %>
+        <% end %>
+        <% end %>
+      </div>
     </div>
- </div>
+    <div class="d-flex col-md-6 mt-5">
+      <div class=""id="map" style="height: 85vh; width: 100%;"></div>
+      <script>
+        function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: <%= @report.latitude %>, lng: <%= @report.longitude %>},
+                zoom: 16,
+            });  
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(<%= @report.latitude %>, <%= @report.longitude %>),
+            });
+
+            marker.setMap(map);
+
+        }
+      </script>
+    </div>
+  </div>
 </div>
+
 
