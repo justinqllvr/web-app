@@ -5,6 +5,7 @@
 <div class="g-content">
 
   <h1>Edition du profil de : <%= current_user %></h1>
+</br>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -22,32 +23,34 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+  </br>
 
     <div class="field">
-      <%= f.label :mot_de_passe %> <i>(laissez blanc si vous voulez pas changer de mot de passe)</i><br />
+      <%= f.label :mot_de_passe %> <i>(laissez blanc si vous ne voulez pas changer de mot de passe)</i><br />
       <%= f.password_field :password, autocomplete: "Nouveau mot de passe" %>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em><%= @minimum_password_length %> caractères minimum</em>
       <% end %>
     </div>
-
+  </br>
     <div class="field">
       <%= f.label :confirmation_de_mot_de_passe %><br />
       <%= f.password_field :password_confirmation, autocomplete: "Nouveau mot de passe " %>
     </div>
 
     <div class="field">
-      <%= f.label :mot_de_passe_actuel %> <i>(Il faut votre nouveau mot de passe pour confirmer les changements)</i><br />
+      <%= f.label :mot_de_passe_actuel %> <i>(Entrer votre mot de passe pour confirmer les changements)</i><br />
       <%= f.password_field :current_password, autocomplete: "Mot de passe actuel" %>
     </div>
 
     <div class="actions mt-2">
-      <%= f.submit "actualiser !" %>
+      <%= f.submit "Sauvegarder" %>
     </div>
   <% end %>
+</br>
 
   <h3>Supprimer mon compte</h3>
 
-  <p>Vous n'êtes pas satisfait ? :( <%= button_to "supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Vous n'êtes pas satisfait ?  <%= button_to "Supprimer le compte", registration_path(resource_name), data: { confirm: "Êtes-vous sur ?" }, method: :delete %></p>
 </div>
