@@ -24,9 +24,11 @@ function initMap() {
 }
 </script>
 
+
 <h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
 
 	<div class="row grid">
+
 		<%= render @city.reports.ordered_by_likes %>
 	</div>
 
