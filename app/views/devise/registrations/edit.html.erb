@@ -3,9 +3,16 @@
 
 
 <div class="g-content">
+  <div class="row justify-content-md-center">
+    <div class="d-flex col-md-8 edit border">
+      <div style="margin:auto;">
+      <h2 style="color: #F2F2F2;">Editez votre profil <%= current_user %> !</h2>  
+      <p class=" text-justify mr-3 ml-3 mt-5" style="color: #F2F2F2;">Vous avez besoin de changer de mot de passe ou de pseudo ?<br> Vous êtes au bon endroit !</p> 
+     </div>
+    </div> 
 
-  <h1>Edition du profil de : <%= current_user %></h1>
-
+<div class="d-flex col-md-8 border">
+    <div style="margin:auto;">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -25,7 +32,7 @@
 
     <div class="field">
       <%= f.label :mot_de_passe %> <i>(laissez blanc si vous voulez pas changer de mot de passe)</i><br />
-      <%= f.password_field :password, autocomplete: "Nouveau mot de passe" %>
+      <%= f.password_field :password, autocomplete: "Nouveau mot de passe" , placeholder: 'Nouveau mot de passe'%>
       <% if @minimum_password_length %>
         <br />
         <em><%= @minimum_password_length %> characters minimum</em>
@@ -34,20 +41,22 @@
 
     <div class="field">
       <%= f.label :confirmation_de_mot_de_passe %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "Nouveau mot de passe " %>
+      <%= f.password_field :password_confirmation, autocomplete: "Nouveau mot de passe ", placeholder: 'Nouveau mot de passe' %>
     </div>
 
     <div class="field">
       <%= f.label :mot_de_passe_actuel %> <i>(Il faut votre nouveau mot de passe pour confirmer les changements)</i><br />
-      <%= f.password_field :current_password, autocomplete: "Mot de passe actuel" %>
+      <%= f.password_field :current_password, autocomplete: "Mot de passe actuel" , placeholder: 'Mot de passe actuel'%>
     </div>
 
     <div class="actions mt-2">
-      <%= f.submit "actualiser !" %>
+      <%= f.submit "Actualiser !", class: 'btn btn-outline-info' %>
     </div>
   <% end %>
 
   <h3>Supprimer mon compte</h3>
 
-  <p>Vous n'êtes pas satisfait ? :( <%= button_to "supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Vous n'êtes pas satisfait ? :( <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
+</div>
+</div>
 </div>
