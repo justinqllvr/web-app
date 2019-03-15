@@ -24,9 +24,26 @@ function initMap() {
 }
 </script>
 
-<div class="col-md-12 mt-5 ">
-	<div class="row">
+
+<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
+
+	<div class="row grid">
+
 		<%= render @city.reports.ordered_by_likes %>
 	</div>
-</div>
+
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var $grid = $('.grid').masonry({
+          itemSelector: '.grid-item'
+        });
+
+        $grid.imagesLoaded().progress( function() {
+          $grid.masonry('layout');
+        });
+    });
+</script>
+
 
