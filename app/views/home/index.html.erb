@@ -27,24 +27,37 @@ function initMap() {
             };
 
             map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
           });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+        } 
+
+        else {
+          // Browser doesn't support Geolocation
+          var pos = {
+              lat: 44.841713,
+              lng: -0.569101
+            };
+          map.setCenter(pos);
+        }
+      
+
     
 }
 </script>
 
 <%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>
 
+<div class="container mt-5" style="text-align: center;">
+  <h2> Nos partenaires </h2>
+  <div class="row partenaires">
+    <div class="col-md-4 d-flex">
+      <%= image_tag 'https://files.slack.com/files-pri/TBU3TSYVA-FGZQ53H0T/mmilogo.png' %>
+    </div>
+    <div class="col-md-4 d-flex">
+      <%= image_tag 'http://ausoniuseditions.u-bordeaux-montaigne.fr/images/Images/Bordeaux-Montaigne-Logo2.png' %>
+    </div>
+    <div class="col-md-4 d-flex">
+      <%= image_tag 'https://www.tousbenevoles.org/images/association/1445517729.jpg' %>
+    </div>
+  </div>
+</div>

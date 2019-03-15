@@ -28,13 +28,13 @@
 
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto titres">
 
-            <li class="nav-item<%= ' active' if request.path == root_path %>">
+            <li class="nav-item <%= ' active' if request.path == root_path %>">
               <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a> 
             </li>
             <li class="nav-item<%= ' active' if request.path == reports_path %>">
-              <%= link_to "Signalements prioritaires", reports_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Tous les signalements", reports_path, class: "nav-link smooth-scroll" %>
             </li>
             <li class="nav-item<%= ' active' if request.path == new_report_path %>">
               <%= link_to "Faire un signalement", new_report_path, class: "nav-link smooth-scroll" %>
@@ -52,17 +52,14 @@
             -->
           <% if user_signed_in? %>
           <div class="dropdown dropleft">
-               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                         <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
-                         <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
-                         
-                             <li>
-                             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-light btn-sm" %>
-                            </li>
-                    </div>
-          <% else %>
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link smooth-scroll" %>
+            </div>
           </div>
+          <% else %>
           </ul>
           <ul class="nav navbar-nav navbar-right">            
               <li class="nav-item mr-2">
@@ -81,5 +78,6 @@
       <%= yield %>
 
     </div>
+    
   </body>
 </html>

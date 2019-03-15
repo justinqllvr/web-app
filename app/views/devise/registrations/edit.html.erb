@@ -29,16 +29,17 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+  </br>
 
     <div class="field">
       <%= f.label :mot_de_passe %> <i>(laissez blanc si vous voulez pas changer de mot de passe)</i><br />
       <%= f.password_field :password, autocomplete: "Nouveau mot de passe" , placeholder: 'Nouveau mot de passe'%>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em><%= @minimum_password_length %> caractères minimum</em>
       <% end %>
     </div>
-
+  </br>
     <div class="field">
       <%= f.label :confirmation_de_mot_de_passe %><br />
       <%= f.password_field :password_confirmation, autocomplete: "Nouveau mot de passe ", placeholder: 'Nouveau mot de passe' %>
@@ -53,8 +54,10 @@
       <%= f.submit "Actualiser !", class: 'btn btn-outline-info' %>
     </div>
   <% end %>
+</br>
 
   <h3>Supprimer mon compte</h3>
+
 
   <p>Vous n'êtes pas satisfait ? :( <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
 </div>
