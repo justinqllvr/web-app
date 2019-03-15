@@ -104,6 +104,13 @@ a {
 }
 
 .partenaires > div > img {
-	width:250px;
-	margin: auto;
+	width: 100%;
+    height: 95%;
+    margin: auto;
+    padding: 20%;
+
+}
+
+.titres > li > a:hover {
+	text-decoration: underline;
 }
