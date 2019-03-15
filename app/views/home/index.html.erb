@@ -46,3 +46,44 @@ function initMap() {
 </script>
 
 <%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>
+
+<footer id="myFooter" class="mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 d-flex">
+                    <div class="logo-footer" style="margin:auto;"><%= link_to image_tag("iconMVA.png", :alt => "icon" ), root_path%></div>
+                </div>
+                <div class="col-sm-2 mt-3">
+                    <h4>Nos partenaires</h4>
+                    <ul>
+                        <li><a href=""><%= image_tag 'https://www.helloasso.com/assets/img/logos/groupement-des-intellectuels-aveugles-ou-amblyopes.PNG' %></a></li>
+                        <li><a href="#"> <%= image_tag 'http://ausoniuseditions.u-bordeaux-montaigne.fr/images/Images/Bordeaux-Montaigne-Logo2.png' %></a></li>
+                        <li><a href="#"><%= image_tag 'https://cdn-images-1.medium.com/max/1200/1*CC0Bibc8GhOv1F5kff-jCw.png' %></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-7 mt-3">
+                    <h4>À propos de nous</h4>
+                    <ul>
+                        <li  class="about-us">
+                          <h5>Qui sommes nous ?</h5>
+                          <p> Derrière Ma Ville Accessible se cache un groupe d’étudiants en DUT Métiers du Multimédia et de l’Internet de Bordeaux. Nous sommes passionnés de développement web, design graphique et communication. </p>
+                        </li>
+                        <li>
+                          <h5>Notre équipe</h5>
+                          <p> Développement web : Nathan Braud, Simon Deflesschouwer, Thierry Gaudiche <br>
+                          Graphisme : Tom Despres,  Camille Lafourcade <br>
+                          Communication  : Julien Berdah, Théo Capitaine, Loïc Charpentier, Maxime Drillaud, Dorian Sacomant, Nicolas Tournadour</p>
+                          
+                        </li>
+                        <li>
+                          
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2019 Ma Ville Accessible </p>
+        </div>
+    </footer>
