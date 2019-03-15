@@ -8,7 +8,7 @@
           <h2><%= report.title %></h2> <span class="badge badge-primary"><%= report.likes.count %> soutiens</span>
           <p class="mt-2"><%= report.text %></p>
           <%= link_to 'Modifier', edit_report_path(report), class: 'btn btn-info btn-sm' %> | 
-          <%= link_to 'Effacer', report, method: :delete, data: { confirm: 'Vous-êtes sur ?' }, class: 'btn btn-danger btn-sm'%> 
+          <%= link_to 'Effacer', report, method: :delete, data: { confirm: 'Etes-vous sur ?' }, class: 'btn btn-danger btn-sm'%> 
         </div>
       <% end %>
     <% end %>
