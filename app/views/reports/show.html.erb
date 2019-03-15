@@ -7,9 +7,10 @@
       <span class="badge badge-primary"><%= @report.likes.count %> soutiens</span>
       <h1 class="mt-3"><%= @report.title %></h1>
       <p><%= @report.text %></p>
+      <p class="text-muted" style="">Signalé par <%= @report.user %> le <%= @report.created_at.strftime "%d/%m/%Y" %></p>
       <div class="d-flex" style="flex-direction: row;">
         <% if current_user %>
-          <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %>
+          <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %> 
           <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
             <% if existing_like %>
               <%= button_to 'Je ne soutiens plus', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger ' %>

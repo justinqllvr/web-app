@@ -2,7 +2,7 @@
   <%= link_to report do %>
     <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid' %>
     <h2 class="mb-1"><%= report.title %></h2>
-    <span class="badge badge-primary"><%= report.likes.count %> likes</span>
+    <span class="badge badge-primary"><%= report.likes.count %> Soutiens</span>
     <p><%= report.text %></p>
     <p class="text-muted" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
   <% end %>
