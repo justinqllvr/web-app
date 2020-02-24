@@ -2,7 +2,7 @@
 <div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
 	<h1><%= @city.name %></h1>
 </div>
-<% coordonnees = Geocoder.search(@city.name) 
+<% coordonnees = Geocoder.search(@city.name)
 	@latitude = coordonnees.first.latitude
 	@longitude = coordonnees.first.longitude %>
 
@@ -14,7 +14,7 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: <%=@latitude%>, lng: <%=@longitude%>},
         zoom: 13
-    });  
+    });
     <% @city.reports.each do |report| %>
         var marker = new google.maps.Marker({
         position: new google.maps.LatLng(<%= report.latitude %>, <%= report.longitude %>),
@@ -45,5 +45,3 @@ function initMap() {
         });
     });
 </script>
-
-

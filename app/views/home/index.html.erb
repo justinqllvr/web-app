@@ -5,7 +5,7 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13
-    });  
+    });
     <% @reports.each do |report| %>
         var marker = new google.maps.Marker({
         position: new google.maps.LatLng(<%= report.latitude %>, <%= report.longitude %>),
@@ -13,13 +13,13 @@ function initMap() {
         });
         marker.setMap(map);
 
-    
+
     google.maps.event.addListener(marker, 'click', function() {
         window.location.href = this.url;
     });
 
     <% end %>
-    
+
      if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -30,7 +30,7 @@ function initMap() {
             map.setCenter(pos);
           });
 
-        } 
+        }
 
         else {
           // Browser doesn't support Geolocation
@@ -40,10 +40,10 @@ function initMap() {
             };
           map.setCenter(pos);
         }
-      
 
-    
+
+
 }
 </script>
 
-<%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report" %>
+<%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report", alt:"Faire un signalement" %>
