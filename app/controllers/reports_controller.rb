@@ -11,7 +11,9 @@ class ReportsController < ApplicationController
   def my
     @reports = current_user.reports
   end
-
+  CarrierWave.configure do |config|
+   config.cache_storage = :file
+  end
   # GET /reports/1
   # GET /reports/1.json
   def show
