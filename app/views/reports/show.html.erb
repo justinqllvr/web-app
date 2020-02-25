@@ -26,6 +26,40 @@
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: <%= @report.latitude %>, lng: <%= @report.longitude %>},
                 zoom: 16,
+                styles: [
+                      {
+                        "featureType": "poi.attraction",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "poi.business",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "poi.place_of_worship",
+                        "stylers": [
+                          {
+                            "visibility": "simplified"
+                          }
+                        ]
+                      },
+                      {
+                        "featureType": "poi.sports_complex",
+                        "stylers": [
+                          {
+                            "visibility": "off"
+                          }
+                        ]
+                      }
+                    ]
             });
 
             var marker = new google.maps.Marker({

@@ -12,7 +12,41 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: <%=@latitude%>, lng: <%=@longitude%>},
-        zoom: 13
+        zoom: 13,
+				styles: [
+              {
+                "featureType": "poi.attraction",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.business",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.place_of_worship",
+                "stylers": [
+                  {
+                    "visibility": "simplified"
+                  }
+                ]
+              },
+              {
+                "featureType": "poi.sports_complex",
+                "stylers": [
+                  {
+                    "visibility": "off"
+                  }
+                ]
+              }
+            ]
     });
     <% @city.reports.each do |report| %>
         var marker = new google.maps.Marker({
