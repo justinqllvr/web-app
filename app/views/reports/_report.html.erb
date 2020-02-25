@@ -1,6 +1,6 @@
 <div class="col-md-3 mb-5 grid-item">
   <%= link_to report do %>
-    <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid' %>
+    <%= image_tag report.picture.url(angle: :exif), class: 'img-fluid', srcset:"small.jpg  256h, medium.jpg  512h,large.jpg 1024h" %>
     <h2 class="mb-1"><%= report.title %></h2>
     <span class="badge badge-primary"><%= report.likes.count %> Soutiens</span>
     <p><%= report.text %></p>
