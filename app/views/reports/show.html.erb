@@ -1,5 +1,3 @@
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
 <div class="container-fluid">
   <div class="row no-margin">
     <div class="col-md-6 mt-5" style="margin-top: 1rem!important">
@@ -10,7 +8,7 @@
       <p class="text-muted" style="">Signalé par <%= @report.user %> le <%= @report.created_at.strftime "%d/%m/%Y" %></p>
       <div class="d-flex" style="flex-direction: row;">
         <% if current_user %>
-          <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %> 
+          <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %>
           <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
             <% if existing_like %>
               <%= button_to 'Je ne soutiens plus', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger ' %>
@@ -28,7 +26,7 @@
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: <%= @report.latitude %>, lng: <%= @report.longitude %>},
                 zoom: 16,
-            });  
+            });
 
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(<%= @report.latitude %>, <%= @report.longitude %>),
@@ -38,8 +36,7 @@
 
         }
       </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
     </div>
   </div>
 </div>
-
-

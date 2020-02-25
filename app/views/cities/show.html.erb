@@ -1,4 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
 <div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
 	<h1><%= @city.name %></h1>
 </div>
@@ -23,6 +22,7 @@ function initMap() {
     <% end %>
 }
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
 
 
 <h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
