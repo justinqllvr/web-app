@@ -28,3 +28,9 @@ class User < ApplicationRecord
   	"#{name}"
   end
 end
+
+#class User < ActiveRecord::Base
+#  devise :database_authenticatable, :registerable,
+#         :confirmable, :recoverable, :validatable # ...
+#  validates_uniqueness_of :username
+#end
