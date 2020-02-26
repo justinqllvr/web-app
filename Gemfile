@@ -29,9 +29,13 @@ gem 'uglifier', '>= 1.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+gem "nokogiri", ">= 1.10.8"
+
 gem 'dotenv-rails'
 
 gem "mini_magick"
+
+gem 'cancancan'
 
 gem 'geocoder'
 # Use Redis adapter to run Action Cable in production

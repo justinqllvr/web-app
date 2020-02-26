@@ -35,9 +35,13 @@ window.onload = function() {
   function getLocation(event) {
     event.preventDefault();
 
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    };
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      // navigator.geolocation.watchPosition(showPosition, showError);
+      navigator.geolocation.getCurrentPosition(showPosition,showError,options);
     } else {
       alertLoc.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -45,6 +49,10 @@ window.onload = function() {
   function showPosition(position) {
     lat.value = position.coords.latitude;
     long.value = position.coords.longitude;
+    console.log(`La précision est de ${position.coords.accuracy} mètres.`);
+  }
+  function showError(){
+    alertLoc.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 </script>
