@@ -27,5 +27,6 @@
 /config/master.key
 .DS_Store
 .env
+
 /config/database.yml
 /public/uploads/tmp
