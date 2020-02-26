@@ -3,54 +3,24 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'rails', '~> 6.0.1'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 3.11'
+gem 'cancancan'
 gem 'acts_as_votable', '~> 0.12.0'
-#simple_form
 gem 'simple_form'
-#jquery
-gem 'jquery-rails'
-#devise
 gem 'devise'
-#cloudinary
 gem 'carrierwave'
 gem 'cloudinary'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.1'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-
-gem "nokogiri", ">= 1.10.8"
-
-gem 'dotenv-rails'
-
-gem "mini_magick"
-
-gem 'cancancan'
-
-gem 'geocoder'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+gem 'jquery-rails'
+gem 'jbuilder', '~> 2.5'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'dotenv-rails'
+gem 'geocoder'
+gem 'bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

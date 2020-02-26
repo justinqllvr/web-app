@@ -23,6 +23,7 @@ class User < ApplicationRecord
   cattr_accessor :current_user
   has_many :likes, dependent: :destroy
   has_many :reports, dependent: :destroy
+  has_and_belongs_to_many :cities
 
   def to_s
   	"#{name}"

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_25_153347) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_26_113046) do
+>>>>>>> dashboard
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +35,11 @@ ActiveRecord::Schema.define(version: 2020_02_25_153347) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cities_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "city_id", null: false
   end
 
   create_table "likes", force: :cascade do |t|
