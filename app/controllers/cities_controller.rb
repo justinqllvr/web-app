@@ -10,6 +10,9 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
+    coordonnees = Geocoder.search(@city.name)
+    @latitude = coordonnees.first.latitude
+    @longitude = coordonnees.first.longitude
   end
 
   # GET /cities/new

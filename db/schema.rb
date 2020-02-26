@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_095716) do
+ActiveRecord::Schema.define(version: 2020_02_26_113046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 2019_03_14_095716) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cities_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "city_id", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "report_id"
     t.bigint "user_id"
@@ -52,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_095716) do
     t.string "picture"
     t.integer "user_id"
     t.bigint "city_id"
+    t.integer "state"
     t.index ["city_id"], name: "index_reports_on_city_id"
   end
 

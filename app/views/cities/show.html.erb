@@ -1,47 +1,44 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
-<div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
-	<h1><%= @city.name %></h1>
-</div>
-<% coordonnees = Geocoder.search(@city.name)
-	@latitude = coordonnees.first.latitude
-	@longitude = coordonnees.first.longitude %>
-
-<div id="map" style="height:40vh;"></div>
-
-
-<script>
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: <%=@latitude%>, lng: <%=@longitude%>},
-        zoom: 13
-    });
-    <% @city.reports.each do |report| %>
-        var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(<%= report.latitude %>, <%= report.longitude %>),
-        });
-        marker.setMap(map);
-    <% end %>
-}
-</script>
-
-
-<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
-
-	<div class="row grid no-margin">
-
-		<%= render @city.reports.ordered_by_likes %>
+<div class="row">
+	<div class="col-md-6">
+		<div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
+			<h1><%= @city.name %></h1>
+		</div>
 	</div>
+	<div class="col-md-6">
+		<div id="map"></div>
+		<script>
+			function initMap() {
+				var map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: <%=@latitude%>, lng: <%=@longitude%>},
+					zoom: 13
+				});
+				<% @city.reports.each do |report| %>
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(<%= report.latitude %>, <%= report.longitude %>),
+				});
+				marker.setMap(map);
+				<% end %>
+			}
+		</script>
+	</div>
+</div>
+<% if can? :manage, @city %>
+	Hello admin
+<% end %>
+<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
+<div class="row grid no-margin">
+	<%= render @city.reports.ordered_by_likes %>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item'
+      });
 
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-        var $grid = $('.grid').masonry({
-          itemSelector: '.grid-item'
-        });
-
-        $grid.imagesLoaded().progress( function() {
-          $grid.masonry('layout');
-        });
-    });
+      $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+      });
+  });
 </script>

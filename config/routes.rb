@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     end
     resources :likes
   end
-  get 'reports'=>'reports#index'
-  get 'cgu' => 'cgu#cgu' 
+  get 'cgu' => 'cgu#cgu'
   get 'home' => 'home#index'
   root to: 'home#index'
 end
