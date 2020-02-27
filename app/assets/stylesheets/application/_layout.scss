@@ -31,9 +31,7 @@ p {
 .nav-item.mr-2 {
     margin-right: 1.1rem !important;
 }
-.icon > a > img {
-    transform: translate(-50%, -85%)!important;
-}
+
 .nav-item{
     font-family: 'Avenir Next';
     align-self:  center;
@@ -42,7 +40,7 @@ p {
 .b_conect{
   transition-duration: 0.4s;
   padding: 5px 15px 5px 15px ; 
-  border-radius : 20px ;
+  border-radius : 20px ; 
   background-color: white;
   color: white;
   border: none;
@@ -56,11 +54,36 @@ p {
 .b_conect:hover a{
     color: white;
 }
-.navbar-light .navbar-nav .active > .nav-link,{
-    color: #8B5CFB ;
-    border-bottom: 3px solid #8B5CFB;
+.b_sign{
+      transition-duration: 0.4s;
+      padding: 7px 15px 7px 15px ; 
+      border-radius : 20px ;
+      background-color: white;
+      color: white;
+      border: none;
+      background-image: linear-gradient(to right,#188FB1, #5574D9);
+}
+.nav-link{
+    display: inline-block;
+    position: relative;
 }
 
+.navbar-light .navbar-nav .active > .nav-link{
+    color: #8B5CFB;
+    font-weight:bold;
+    font-size: 107%;
+
+}
+.navbar-light .navbar-nav .active > .nav-link::before{
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 3px;
+    background: #8B5CFB;
+    box-shadow: 2px 2px 10px #8B83FACE;
+    margin-left: calc(50% - 24px);
+    transform: translateY(30px);
+}
 
 /* Button */
 .btn {
@@ -123,10 +146,8 @@ p {
  }
 
 .icon > a > img{
-    height: 65px;
-    margin-left: 50%;
-    transform: translate(-75%, -85%);
-    position: absolute;
+    height: 45px;
+    margin-left: 0%;
     z-index: 10;
 
 }
@@ -137,6 +158,8 @@ p {
 
 h1{
 	text-align: center;
+    font-size: 110%;
+    margin: 0px 2vw 0px 0.5vw;
 }
 
 a {
@@ -149,7 +172,7 @@ a {
 }
 
 .inscrire{
-	background-image: linear-gradient(#8B5CFB, #5574D9,#188FB1);
+	background-image: linear-gradient(#8B5CFB, #5574D9, #188FB1);
 	height: 80vh;
 }
 
