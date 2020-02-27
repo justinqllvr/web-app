@@ -1,12 +1,22 @@
-<div class="col-md-3 mb-5 grid-item">
-  <%= link_to report do %>
-    <%= image_tag report.picture.url(angle: :exif, quality: 'auto'), class: 'img-fluid' %>
+<%= link_to report do %>
+<div class="col-md-3 mb-5 grid-item macard" style="background-image: url(<%=report.picture.url%>);">
+  <div class="cardgradientreport">
+    <span class="badge badge-primary boutontraitementreport" style="background-color: #2E85C0">Résolu</span>
+    <div class="contentbascard">
+      <div class="divpart2report">
+        <h2 class="mb-1 textblanc titrereport"><%= report.title %></h2>
+        <span class="badge badge-primary textnbsignalementreport"><%= report.likes.count %> Soutiens</span>
+      </div>
 
-    <h2 class="mb-1"><%= report.title %></h2>
-    <span class="badge badge-primary"><%= report.likes.count %> Soutiens</span>
-    <p><%= report.text %></p>
-    <p class="text-muted" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
-  <% end %>
+      <div class="divpart3report">
+        <p class="textblanc descreport"><%= report.text %></p>
+        <p class="text-muted textblanc signaleparreport" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
+      </div>
+    </div>    
+  </div>
+</div>
+<% end %>
+
   <% if current_user&.admin%>
     <div>
       <%= link_to 'Effacer', report, method: :delete, data: { confirm: 'Êtes-vous sur ?' }, class: 'btn btn-danger btn-sm'%>
@@ -14,5 +24,5 @@
         <%= link_to 'Modifier', edit_report_path(report), class: 'btn btn-info btn-sm' %>
       <% end %>
     </div>
-  <% end %>
 </div>
+  <% end %>

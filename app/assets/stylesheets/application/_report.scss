@@ -1,0 +1,79 @@
+.macard{
+	height: 33vh;
+	background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover;
+    background-position:center center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 9px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding-right: 0px;
+	padding-left: 0px;																																																
+}
+.boutontraitementreport{
+	width: 15%;
+	margin-left: 0;
+	margin-left:15px;
+	margin-top:15px;
+}																																																																																																																																																							 
+.illureport{
+	border-radius: 9px;
+}
+.divpart2report{
+	display: flex;
+	flex-direction: row;
+	padding: 0 15px;
+	justify-content: space-between;
+}
+.contentbascard{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.divpart3report{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.textnbsignalementreport{
+	background-color: transparent;
+	color: #28FF00;
+	font-size: 1.15em;
+	font-weight: bold;
+}
+.cardgradientreport{
+	background-image: linear-gradient(rgba(139, 91, 251, 0.4), rgba(85, 116, 217, 0.4), rgba(24, 142, 175, 0.4));
+	border-radius: 9px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.textblanc{
+	color: #FFFFFF !important;
+}
+.textblanc{
+	color: #FFFFFF !important;
+}
+.signaleparreport{
+	font-size: 0.7em;
+}
+.descreport{
+	font-size: 0.85em;
+}
+.titrereport{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.boutontraitementreport{
+	font-size: 0.85em;
+	font-weight: bold;
+	padding: 0.4em 0;
+}
+.contentbascard{
+	position: absolute;
+	bottom: 0;
+}
