@@ -34,6 +34,33 @@ p {
 .icon > a > img {
     transform: translate(-50%, -85%)!important;
 }
+.nav-item{
+    font-family: 'Avenir Next';
+    align-self:  center;
+}
+
+.b_conect{
+  transition-duration: 0.4s;
+  padding: 5px 15px 5px 15px ; 
+  border-radius : 20px ;
+  background-color: white;
+  color: white;
+  border: none;
+  background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+}
+
+.b_conect a{
+    color: white;
+}
+
+.b_conect:hover a{
+    color: white;
+}
+.navbar-light .navbar-nav .active > .nav-link,{
+    color: #8B5CFB ;
+    border-bottom: 3px solid #8B5CFB;
+}
+
 
 /* Button */
 .btn {
@@ -160,11 +187,11 @@ input{
     margin: auto;
 
 }
-
+/*
 .titres > li > a:hover {
 	text-decoration: underline;
 }
-
+*/
 
 
 
