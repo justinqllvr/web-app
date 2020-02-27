@@ -29,7 +29,9 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav mr-auto titres">
             <li class="nav-item <%= ' active' if request.path == root_path %>">
-              <a class="nav-link" href="<%= root_path %>">Accueil<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<%= root_path %>">
+                <span class="underline-title">Accueil</span>
+                <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item<%= ' active' if request.path == reports_path %>">
               <%= link_to "Tous les signalements", reports_path, class: "nav-link smooth-scroll" %>
@@ -52,7 +54,7 @@
             </div>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item mr-2">
+              <li class="nav-item mr-2 b_conect">
                 <%= link_to "S'inscrire", new_user_registration_path, class: ""%>
               </li>
               <li class="nav-item">
