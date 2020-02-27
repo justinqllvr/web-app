@@ -1,43 +1,10 @@
 <h1 style="display: none;"> Ma Ville Accessible </h1>
 <div id="map"></div>
+<%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report", alt:"Faire un signalement" %>
 <script>
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
-      styles: [
-        {
-          "featureType": "poi.attraction",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.business",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.place_of_worship",
-          "stylers": [
-            {
-              "visibility": "simplified"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.sports_complex",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        }
-      ]
     });
     <% @reports.each do |report| %>
       var marker = new google.maps.Marker({
@@ -68,4 +35,3 @@ function initMap() {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script> <!--Google Map API-->
-<%= link_to "Faire un signalement", new_report_path, class: "btn btn-info new-report", alt:"Faire un signalement" %>

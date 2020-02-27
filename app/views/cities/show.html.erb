@@ -3,6 +3,21 @@
 		<div class="jumbotron" style="background-image: url('<%= "https://source.unsplash.com/1920x600/?#{@city.name}" %>');">
 			<h1><%= @city.name %></h1>
 		</div>
+		<ul class="nav nav-pills">
+		  <% Report.states.each do |key, value| %>
+		    <li class="nav-item">
+					<%= link_to t("report.state.#{key}"),
+											city_path(@city, state: key),
+											class: "nav-link #{'active' if params[:state] == key}" %>
+				</li>
+		  <% end %>
+		</ul>
+		<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
+		<% if @reports.any? %>
+			<div class="row grid no-margin">
+				<%= render @reports %>
+			</div>
+		<% end %>
 	</div>
 	<div class="col-md-6">
 		<div id="map"></div>
@@ -25,10 +40,6 @@
 <% if can? :manage, @city %>
 	Hello admin
 <% end %>
-<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
-<div class="row grid no-margin">
-	<%= render @city.reports.ordered_by_likes %>
-</div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 <script type="text/javascript">

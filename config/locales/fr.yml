@@ -1,0 +1,7 @@
+fr:
+  report:
+    state:
+      pending: 'En attente'
+      accepted: 'Accepté'
+      fixed: 'Résolu'
+      not_fixed: 'Impossible à résoudre'

@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_02_25_153347) do
-=======
-ActiveRecord::Schema.define(version: 2020_02_26_113046) do
->>>>>>> dashboard
+ActiveRecord::Schema.define(version: 2020_02_27_154143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_02_26_113046) do
     t.string "picture"
     t.integer "user_id"
     t.bigint "city_id"
-    t.integer "state"
+    t.integer "state", default: 0
+    t.text "infeasible_reason"
+    t.string "done_picture"
     t.index ["city_id"], name: "index_reports_on_city_id"
   end
 
