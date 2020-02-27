@@ -13,6 +13,13 @@ class CitiesController < ApplicationController
     coordonnees = Geocoder.search(@city.name)
     @latitude = coordonnees.first.latitude
     @longitude = coordonnees.first.longitude
+    @reports = @city.reports
+    if params.has_key? :state
+      @state = params[:state]
+      @reports = @reports.send(@state)
+    end
+    @reports = @reports.ordered_by_likes
+
   end
 
   # GET /cities/new

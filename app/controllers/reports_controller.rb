@@ -5,7 +5,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.ordered_by_likes
+    @reports = Report.all
+    if params.has_key? :state
+      @state = params[:state]
+      @reports = @reports.send(@state)
+    end
+    @reports = @reports.ordered_by_likes
   end
 
   def my
