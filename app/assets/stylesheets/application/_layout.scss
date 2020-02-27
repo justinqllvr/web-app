@@ -73,6 +73,7 @@ p {
     font-weight:bold;
     font-size: 107%;
 
+
 }
 .navbar-light .navbar-nav .active > .nav-link::before{
     position: absolute;
@@ -90,10 +91,56 @@ p {
     margin: 5px;
 }
 
-/* Cities */
+/* Cities 
 .jumbotron {
     margin-bottom: -10px;
+}*/
+.city_pres{
+    align-items: center;
+    margin-left: 21%; 
 }
+.city_title{
+    display: flex;
+    flex-direction: row;
+    margin: 5%;
+    color: #8B5CFB;
+}
+.city_name{
+      padding: 7px 15px 7px 15px ; 
+      border-radius : 7px ;
+      background-color: white;
+      color: white;
+      border: none;
+      background-image: linear-gradient(to right,#188FB1, #5574D9);
+      font-size: 130%;
+}
+
+.b_city{
+    color: grey;
+    margin: 10px;
+}
+.nav-pills .nav-link.active,{
+    transition-duration: 0.4s;
+      padding: 7px 15px 7px 15px ; 
+      border-radius : 5px ;
+      background-color: white;
+      color: white;
+      border: none;
+      background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+}
+.b_city:hover{
+      transition-duration: 0.4s;
+      padding: 7px 15px 7px 15px ; 
+      border-radius : 5px ;
+      background-color: white;
+      color: white;
+      border: none;
+      background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+}
+.b_city:hover a{
+    color: white;
+}
+
 
 /****************************************************/
 
