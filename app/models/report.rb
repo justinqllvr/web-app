@@ -26,6 +26,13 @@ class Report < ApplicationRecord
 
 	mount_uploader :picture, ImageUploader
 
+	enum state: {
+		pending: 0,
+		accepted: 10,
+		fixed: 20,
+		not_fixed: 30
+	}
+
 	protected
 
 	def find_city
@@ -36,4 +43,3 @@ class Report < ApplicationRecord
 		end
 	end
 end
-
