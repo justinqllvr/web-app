@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 <%= link_to report do %>
-<div class="col-md-3 mb-5 grid-item macard" style="background-image: url(<%=report.picture.url(angle: :exif, quality: 'auto')%>);">
+<div class="col-md-10 mb-5 grid-item macard" style="background-image: url(<%=report.picture.url(angle: :exif, quality: 'auto')%>);">
   <div class="cardgradientreport">
-    <span class="badge badge-primary boutontraitementreport" style="background-color: #2E85C0">Résolu</span>
+    <p class="badge badge-primary boutontraitementreport <%= report.state %>"><%= report.state %></p>
     <div class="contentbascard">
       <div class="divpart2report">
         <h2 class="mb-1 textblanc titrereport"><%= report.title %></h2>
@@ -13,7 +12,7 @@
         <p class="textblanc descreport"><%= report.text %></p>
         <p class="text-muted textblanc signaleparreport" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 <% end %>

@@ -33,7 +33,6 @@ p {
 }
 
 .nav-item{
-    font-family: 'Avenir Next';
     align-self:  center;
 }
 
@@ -85,6 +84,45 @@ p {
     margin-left: calc(50% - 24px);
     transform: translateY(30px);
 }
+.titre_a{
+  margin: 0vh 1vw 0vh 1vw
+}
+.logo > a > img{
+  display: none;
+  }
+
+@media only screen and (max-width: 600px) {
+  .nav-item.mr-2 {
+    margin-right: 0rem !important;
+  }
+  .b_conect{
+    margin-top: 0.5vh;
+  }
+  .b_conect_2 {
+    margin-bottom: 1vh;
+  }
+  .navbar-light .navbar-nav .active > .nav-link::before{
+    margin-left: calc(50% - 12px);
+    transform: translateY(30px);
+  }
+  .logo > a > img{
+    display: block;
+    height: 45px;
+    z-index: 10;
+  }
+  .logo{
+       margin-right: 43% !important;
+  }
+  .icon{
+    display: none;
+  }
+  .profil{
+    margin-top: -10vh !important;
+  }
+  .titre_a{
+    margin-top: 1.5vh;
+  }
+}
 
 /* Button */
 .btn {
@@ -97,7 +135,7 @@ p {
 }*/
 .city_pres{
     align-items: center;
-    margin-left: 21%; 
+  /*  margin-left: 21%; */
 }
 .city_title{
     display: flex;
@@ -139,6 +177,10 @@ p {
 }
 .b_city:hover a{
     color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  
 }
 
 

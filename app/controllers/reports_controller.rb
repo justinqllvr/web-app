@@ -4,7 +4,9 @@ class ReportsController < ApplicationController
   # before_action :authenticate_user!
   # GET /reports
   # GET /reports.json
+
   def index
+    @cities = City.all
     @reports = Report.all
     if params.has_key? :state
       @state = params[:state]
@@ -72,8 +74,10 @@ class ReportsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_report
+      @city = City.find(current_user.id)
       @report = Report.find(params[:id])
     end
 

@@ -11,14 +11,14 @@
     margin-right: 15px;
     margin-left: 15px;
     padding-right: 0px;
-	padding-left: 0px;																																																
+	padding-left: 0px;
 }
 .boutontraitementreport{
 	width: 15%;
 	margin-left: 0;
 	margin-left:15px;
 	margin-top:15px;
-}																																																																																																																																																							 
+}
 .illureport{
 	border-radius: 9px;
 }
@@ -77,3 +77,22 @@
 	position: absolute;
 	bottom: 0;
 }
+
+/* States =========== */
+
+.accepted{
+
+}
+.pending{
+
+}
+
+.fixed{
+
+}
+
+.not_fixed{
+
+}
+
+/*===================== */

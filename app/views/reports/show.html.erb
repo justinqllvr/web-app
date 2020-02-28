@@ -17,6 +17,9 @@
             <% end %>
         <% end %>
       </div>
+      <% if can? :manage, @city %>
+        
+      <% end %>
     </div>
     <div class="d-flex col-md-6 mt-5 no-padding" style="margin-top: 0!important">
       <div class=""id="map" style="height: 85vh; width: 100%;"></div>
