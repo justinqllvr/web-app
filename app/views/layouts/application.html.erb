@@ -26,12 +26,15 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="logo"> 
+          <%= link_to image_tag("iconMVA.png", :alt => "Menu" ), root_path %>
+        </div> 
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav mr-auto titres">
             <li class="nav-item icon">
               <%= link_to image_tag("iconMVA.png", :alt => "Menu" ), root_path %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item titre_a">
               <h1>Ma ville accessible</h1>
             </li>
             <li class="nav-item <%= ' active' if request.path == root_path %>">
@@ -51,22 +54,24 @@
             <li class="nav-item<%= ' active' if request.path == cities_path %>">
               <%= link_to "Decouvrir", cities_path, class: "nav-link smooth-scroll" %>
             </li>
+            
           </ul>
-          <% if user_signed_in? %>
-            <div class="dropdown dropleft">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
-                <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
-                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link smooth-scroll" %>
+            <% if user_signed_in? %>
+              <div class="dropdown dropleft nav-item ">
+                <button class="btn btn-light dropdown-toggle profil" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user %></button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <%= link_to "Mes signalements", my_reports_path, class: "nav-link smooth-scroll" %>
+                  <%= link_to "Editer mon profil", edit_user_registration_path, class: "nav-link smooth-scroll" %>
+                  <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link smooth-scroll" %>
+                </div>
               </div>
-            </div>
-          <% else %>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item mr-2 b_conect">
+            <% else %>
+          
+            <ul class="nav navbar-nav navbar-right titres">
+              <li class="nav-item mr-2 b_conect b_conect_2">
                 <%= link_to "S'inscrire", new_user_registration_path, class: ""%>
               </li>
-              <li class="nav-item">
+              <li class="nav-item b_conect_2">
                 <%= link_to "Se connecter", new_user_session_path, class: ""%>
               </li>
             </ul>
