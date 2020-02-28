@@ -22,7 +22,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-lignt">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,7 @@
               <%= link_to image_tag("iconMVA.png", :alt => "Menu" ), root_path %>
             </li>
             <li class="nav-item titre_a">
-              <h1>Ma ville accessible</h1>
+             <%= link_to "Ma ville accessible", root_path %>
             </li>
             <li class="nav-item <%= ' active' if request.path == root_path %>">
               <a class="nav-link" href="<%= root_path %>">
@@ -52,7 +52,7 @@
               <%= link_to "Villes", cities_path, class: "nav-link smooth-scroll" %>
             </li>  -->
             <li class="nav-item<%= ' active' if request.path == cities_path %>">
-              <%= link_to "Decouvrir", cities_path, class: "nav-link smooth-scroll" %>
+              <%= link_to "Villes", cities_path, class: "nav-link smooth-scroll" %>
             </li>
             
           </ul>
