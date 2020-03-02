@@ -4,19 +4,22 @@
 
 <%= simple_form_for @report do |f| %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 ">
       <%= f.input :title, placeholder: 'Titre du signalement' %>
       <%= f.input :text, placeholder: 'Description du signalement' %>
-      <%= f.input :picture %>
+      <div >
+        <%= f.input :picture  %>
+      </div>
     </div>
     <div class="col-md-6">
-      <button class="btn btn-outline-success" id="btn-loc">Géolocalisation</button>
       <div id="alert-localisation"></div>
       <%= f.input :latitude %>
       <%= f.input :longitude %>
+      <button class="btn btn-outline-success btn-form" id="btn-loc">Géolocalisation</button>
     </div>
+      
   </div>
-  <%= f.submit 'Valider', class: 'btn btn-primary' %>
+  <%= f.submit 'Valider', class: 'btn btn-primary b_conect' %>
 <% end %>
 
 

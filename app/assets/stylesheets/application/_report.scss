@@ -1,3 +1,30 @@
+/* Partie Form de nouveaux */
+.titre_new{
+	color: #8B5CFB;
+	font-size: 7vh;
+}
+.btn-form{
+  transition-duration: 0.4s;
+  padding: 10px 34% 10px 34% ; 
+  border-radius : 7px ; 
+  background-color: white;
+  color: white;
+  border: none;
+  background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+}
+
+.btn-form a{
+    color: white;
+}
+
+.btn-form:hover a{
+    color: white;
+}
+
+
+/* Partie autre */
+
+
 .macard{
 	height: 33vh;
 	background-repeat: no-repeat;
@@ -13,6 +40,7 @@
     padding-right: 0px;
 	padding-left: 0px;
 }
+
 .boutontraitementreport{
 	width: 15%;
 	margin-left: 0;
