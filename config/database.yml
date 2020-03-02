@@ -32,13 +32,9 @@ development:
   #username: postgres
 
   # The password associated with the postgres role (username).
-<<<<<<< HEAD
+
   #password: 'debian'
 
-=======
-
-  password: debian
->>>>>>> 4e428a504eff8b7a2024a0a2b462daa4f6635819
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have

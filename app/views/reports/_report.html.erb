@@ -1,28 +1,35 @@
 <%= link_to report do %>
-<div class="col-md-10 mb-5 grid-item macard" style="background-image: url(<%=report.picture.url(angle: :exif, quality: 'auto')%>);">
+<div class="col-md-10 mb-2 grid-item macard" style="background-image: url(<%=report.picture.url(angle: :exif, quality: 'auto')%>);">
   <div class="cardgradientreport">
-    <p class="badge badge-primary boutontraitementreport <%= report.state %>"><%= report.state %></p>
-    <div class="contentbascard">
-      <div class="divpart2report">
-        <h2 class="mb-1 textblanc titrereport"><%= report.title %></h2>
-        <span class="badge badge-primary textnbsignalementreport"><%= report.likes.count %> Soutiens</span>
-      </div>
-
-      <div class="divpart3report">
-        <p class="textblanc descreport"><%= report.text %></p>
-        <p class="text-muted textblanc signaleparreport" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
+    <p class="badge badge-primary boutontraitementreport <%= report.state %>"><%= t 'report.state.'+report.state %></p>
+    <div class="container h-100">
+      <div class="row align-items-end h-100">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="mb-1 textblanc titrereport"><%= report.title %></h2>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+              <span class="badge badge-primary textnbsignalementreport"><%= report.likes.count %> Soutiens</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="divpart3report">
+              <p class="textblanc descreport"><%= report.text %></p>
+              <p class="text-muted textblanc signaleparreport" style="margin-top: -15px">Signalé par <%= report.user %> le <%= report.created_at.strftime "%d/%m/%Y" %></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <% end %>
-
   <% if current_user&.admin%>
-    <div>
+    <div class="mb-3">
       <%= link_to 'Effacer', report, method: :delete, data: { confirm: 'Êtes-vous sur ?' }, class: 'btn btn-danger btn-sm'%>
       <% if current_user == report.user %>
         <%= link_to 'Modifier', edit_report_path(report), class: 'btn btn-info btn-sm' %>
       <% end %>
     </div>
-</div>
   <% end %>

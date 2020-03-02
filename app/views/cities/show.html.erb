@@ -15,12 +15,11 @@
 			  <% end %>
 			</ul>
 		</div>
-		<h1 class="mt-5 mb-5">Signalements triés par soutiens</h1>
-		<% if @reports.any? %>
-			<div class="row grid no-margin">
-				<%= render @reports %>
-			</div>
-		<% end %>
+		<div>
+			<% if @reports.any? %>
+					<%= render @reports %>
+			<% end %>
+		</div>
 	</div>
 	<div class="col-md-8 macarte">
 		<div id="map"></div>
@@ -40,9 +39,7 @@
 		</script>
 	</div>
 </div>
-<% if can? :manage, @city %>
-	Hello admin
-<% end %>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"async defer></script>
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 <script type="text/javascript">
