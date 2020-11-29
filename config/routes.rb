@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   devise_for :users
   resources :cities, only: [:index, :show]
   resources :reports do
