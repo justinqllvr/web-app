@@ -1,8 +1,36 @@
 /* Partie Form de nouveaux */
-.titre_new{
-	color: #8B5CFB;
-	font-size: 7vh;
+$purp: #8B5CFB;
+
+@mixin mintablet {
+	@media (min-width: 972px)
+	{
+	   @content
+	}
+ }
+
+.report__container {
+
+	.report__title {
+		color: $purp;
+		font-size: 1.75rem;
+		font-weight: bold;
+		text-align: center;
+		@include mintablet {
+			font-size: 3rem;
+			text-align: left;
+		}
+	}
+
+	.report__subtitle {
+		color: black;
+		font-size: .875rem;
+		text-align: left;
+		@include mintablet {
+			font-size: 1rem;
+		}
+	}
 }
+
 .btn-form{
   transition-duration: 0.4s;
   padding: 10px 34% 10px 34% ; 
