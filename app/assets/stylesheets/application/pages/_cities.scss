@@ -48,6 +48,26 @@
     color: white;
 }
 
+.title_cities {
+  color: #8B5CFB;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cities_table {
+  width: 30vw;
+  background-color: blue;
+  margin: 0px auto;
+}
+
+.cities_thead {
+  background-color: white;
+  border-bottom: 1px solid #5474D8;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+}
 @media only screen and (max-width: 600px) {
 
 }
