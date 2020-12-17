@@ -8,7 +8,30 @@ $purp: #8B5CFB;
 	}
  }
 
+ .form-label-group {
+	> label {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  display: block;
+	  width: 100%;
+	  margin-bottom: 0; /* Override default `<label>` margin */
+	  line-height: 1.5;
+	  color: #495057;
+	  cursor: text; /* Match the input under the label */
+	  border: 1px solid transparent;
+	  border-radius: .25rem;
+	  transition: all .1s ease-in-out;
+	  user-select: none;
+	}
+}
 .report__container {
+	margin: 0 auto;
+	width: 90vw;
+	
+	@include mintablet {
+		width: 65vw;
+	}
 
 	.report__title {
 		color: $purp;
@@ -22,6 +45,7 @@ $purp: #8B5CFB;
 	}
 
 	.report__subtitle {
+		padding: 0;
 		color: black;
 		font-size: .875rem;
 		text-align: left;
@@ -29,7 +53,39 @@ $purp: #8B5CFB;
 			font-size: 1rem;
 		}
 	}
+
+	.report__form__container {
+		margin: 0px 2vw 0px 0.5vw;
+	}
+	
 }
+
+.btn__validate {
+	width: 70%;
+	padding: 5px 15px;
+	margin: 0 auto;
+
+	font-size: 1.15rem;
+	color: white;
+	
+    border: none;
+	border-radius : 20px ;
+	background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+
+	&:hover {
+		transform: scale(1.02);
+	}
+
+	@include mintablet {
+		width: 30%;
+	}
+
+	-webkit-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+
+
+textarea {resize: none;}
 
 .btn-form{
   transition-duration: 0.4s;
@@ -39,14 +95,6 @@ $purp: #8B5CFB;
   color: white;
   border: none;
   background-image: linear-gradient(to right, #8B5CFB, #5574D9);
-}
-
-.btn-form a{
-    color: white;
-}
-
-.btn-form:hover a{
-    color: white;
 }
 
 
@@ -111,9 +159,6 @@ $purp: #8B5CFB;
 .textblanc{
 	color: #FFFFFF !important;
 }
-.textblanc{
-	color: #FFFFFF !important;
-}
 .signaleparreport{
 	font-size: 0.7em;
 }
@@ -133,22 +178,3 @@ $purp: #8B5CFB;
 	position: absolute;
 	bottom: 0;
 }
-
-/* States =========== */
-
-.accepted{
-
-}
-.pending{
-
-}
-
-.fixed{
-
-}
-
-.not_fixed{
-
-}
-
-/*===================== */

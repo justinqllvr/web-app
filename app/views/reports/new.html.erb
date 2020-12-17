@@ -1,8 +1,13 @@
-<div class="container g-content report__container">
+<div class="report__container">
 	<h1 class="report__title ">Faire un signalement</h1>
 	<hr class="mx-4">
 	<%= render 'form', report: @report %>
 
+	<%
+=begin%>
+ Sert à rien 
+<%
+=end%>
 	<div class="row justify-content-center" style="padding-top: 5px;">
 	    <% pre_like = @report.likes.find { |like| like.user_id == current_user.id} %></div>
 
