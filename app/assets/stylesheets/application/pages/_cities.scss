@@ -68,6 +68,28 @@
   font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
 }
-@media only screen and (max-width: 600px) {
-
-}
+@media only screen and (max-width: 1000px) {
+    .city_name {
+      height: 7vh;
+      line-height: 4.5vh;
+      border-radius : 7px ;
+      background-color: white;
+      color: white;
+      border: none;
+      background-image: linear-gradient(to right,#188FB1, #5574D9);
+      font-size: 3vh;
+    }
+    .city_title h3 {
+        height: 7vh;
+        line-height: 6.5vh;
+        color: #8B5CFB;
+        font-size: 2.5vh;
+      }
+    .city_title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 5%;
+        color: #8B5CFB;
+      }
+    }
