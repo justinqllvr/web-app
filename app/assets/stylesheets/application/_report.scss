@@ -8,27 +8,14 @@ $purp: #8B5CFB;
 	}
  }
 
- .form-label-group {
-	> label {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  display: block;
-	  width: 100%;
-	  margin-bottom: 0; /* Override default `<label>` margin */
-	  line-height: 1.5;
-	  color: #495057;
-	  cursor: text; /* Match the input under the label */
-	  border: 1px solid transparent;
-	  border-radius: .25rem;
-	  transition: all .1s ease-in-out;
-	  user-select: none;
-	}
-}
 .report__container {
 	margin: 0 auto;
 	width: 90vw;
 	
+	textarea {
+		height: 88px;
+	}
+
 	@include mintablet {
 		width: 65vw;
 	}
@@ -48,55 +35,91 @@ $purp: #8B5CFB;
 		padding: 0;
 		color: black;
 		font-size: .875rem;
-		text-align: left;
+		text-align: center;
 		@include mintablet {
 			font-size: 1rem;
+			text-align: left;
 		}
 	}
 
 	.report__form__container {
 		margin: 0px 2vw 0px 0.5vw;
+
+		label {
+			color: $purp;
+			font-weight: bold;
+		}
+
+		input[type=text], input[type=number] {
+			text-align: left;
+		}
+		
+		.btn-form{
+			padding: 4px 20px; 
+			margin: 0;
+			border-radius : 7px ; 
+			border: solid 1px #5574D9;
+			color: #5574D9;
+			background-color: transparent;
+			font-weight: bold;
+
+			&:hover {
+				border: solid 1px #8B5CFB;
+				color: #8B5CFB;
+			}
+			transition: all .3s ease-out;
+		  }
+
+		  #alert-localisation {
+			  margin-top: -24px;
+			  color: red;
+
+			  &:empty() {
+				  margin-top: 0px;
+			  }
+		  }
+
 	}
-	
+
 }
 
-.btn__validate {
-	width: 70%;
-	padding: 5px 15px;
-	margin: 0 auto;
-
-	font-size: 1.15rem;
-	color: white;
-	
-    border: none;
-	border-radius : 20px ;
-	background-image: linear-gradient(to right, #8B5CFB, #5574D9);
-
+#report_picture {
+	color: #5574D9;
 	&:hover {
-		transform: scale(1.02);
+		cursor: pointer;
 	}
+}
 
-	@include mintablet {
-		width: 30%;
+.btn__validate__container {
+	text-align: center;
+	.btn__validate {
+		width: 70%;
+		padding: 5px 15px;
+		margin: 0 auto;
+	
+		font-size: 1.15rem;
+		font-weight: bold;
+		color: white;
+		
+		border: none;
+		border-radius : 20px ;
+		background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+	
+		&:hover {
+			transform: scale(1.02);
+		}
+	
+		@include mintablet {
+			width: 30%;
+		}
+	
+		-webkit-transition: all .3s ease-out;
+		transition: all .3s ease-out;
 	}
-
-	-webkit-transition: all .3s ease-out;
-	transition: all .3s ease-out;
 }
 
 
-textarea {resize: none;}
-
-.btn-form{
-  transition-duration: 0.4s;
-  padding: 10px 34% 10px 34% ; 
-  border-radius : 7px ; 
-  background-color: white;
-  color: white;
-  border: none;
-  background-image: linear-gradient(to right, #8B5CFB, #5574D9);
-}
-
+textarea {resize: none; width: 80px;}
 
 /* Partie autre */
 

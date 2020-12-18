@@ -5,21 +5,24 @@
   <%= simple_form_for @report do |f| %>
     <div class="row form-group">
       <div class="col-md-6 ">
-        <%= f.input :title, placeholder: 'Titre du signalement'%>
-        <%= f.input :text, placeholder: 'Description du signalement', class: 'noresize' %>
+        <%= f.input :title, :label => "Titre", placeholder: 'Titre du signalement'%>
+        <%= f.input :text, :label => "Description", placeholder: 'Description du signalement', class: 'noresize' %>
         <div >
-          <%= f.input :picture  %>
+          <%= f.input :picture, :label => "Photo" %>
         </div>
       </div>
       <div class="col-md-6">
         <div id="alert-localisation"></div>
-        <%= f.input :latitude %>
-        <%= f.input :longitude %>
-        <button class="btn btn-outline-success btn-form" id="btn-loc">Géolocalisation</button>
+        <%= f.input :latitude, placeholder: '44.2440' %>
+        <%= f.input :longitude, placeholder: '-9.3270' %>
+        <button class="btn btn-outline-success btn-form" id="btn-loc">Se géolocaliser</button>
       </div>
         
     </div>
-    <%= f.submit 'Signaler le problème', class: 'btn btn-primary btn__validate' %>
+    <hr>
+    <div class="btn__validate__container">
+      <%= f.submit 'Signaler le problème', class: 'btn btn-primary btn__validate' %>
+    </div>
   <% end %>
 
 </div>
@@ -46,7 +49,7 @@ window.onload = function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition,showError,options);
     } else {
-      alertLoc.innerHTML = "Geolocation is not supported by this browser.";
+        showError();
     }
   }
   function showPosition(position) {
@@ -55,7 +58,7 @@ window.onload = function() {
     console.log(`La précision est de ${position.coords.accuracy} mètres.`);
   }
   function showError(){
-    alertLoc.innerHTML = "Geolocation is not supported by this browser.";
+    alertLoc.innerHTML = "La géolocalisation n'est pas prise en charge par ce navigateur.";
   }
 }
 </script>
