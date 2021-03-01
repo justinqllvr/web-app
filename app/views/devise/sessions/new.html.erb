@@ -1,44 +1,44 @@
 <div class="register1 g-content">
-<div class="register-home container" >
-  <div class="row">
-    <div class="d-flex col-md-6 inscrire border">
-      <div style="margin:auto;">
-      <h2 style="color: #F2F2F2;">Connectez vous !<br>Soyez plus qu'un passant!</h2>
-      <p class="text-justify mr-3 ml-3 mt-5" style="color: #F2F2F2;">Ma ville accessible est une web application de mise en relation permettant de signaler le manque d’accessibilité d’un site afin de prévenir une autorité (association, mairie)  
-     Cette signalisation peut être faite à l’aide d’une photo ou simplement grâce aux coordonnées géographique suivi d’une courte description.</p>
+    <div class="register-home container">
+        <div class="row">
+            <div class="d-flex col-md-6 inscrire border">
+                <div style="margin:auto;">
+                    <h2 style="color: #F2F2F2;">Connectez vous !<br>Soyez plus qu'un passant!</h2>
+                    <p class="text-justify mr-3 ml-3 mt-5" style="color: #F2F2F2;">Ma ville accessible est une web application de mise en relation permettant de signaler le manque d’accessibilité d’un site afin de prévenir une autorité (association, mairie)
+                        Cette signalisation peut être faite à l’aide d’une photo ou simplement grâce aux coordonnées géographique suivi d’une courte description.</p>
+                </div>
+            </div>
+
+            <div class="d-flex col-md-6 border">
+                <div style="margin:auto;">
+                    <h2 class="h3 mb-3 font-weight-normal mt-2 mt-2">Connexion</h2>
+
+                    <br />
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="field form-label-group connexion">
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: ' exemple@xxx.com'%>
+                    </div>
+                    <br />
+
+                    <div class="field connexion">
+                        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Mot de passe : ******' %>
+                    </div>
+
+                    <% if devise_mapping.rememberable? %>
+                    <div class="field mt-4">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :Se_souvenir_de_moi %>
+                    </div>
+                    <% end %>
+                    <br />
+                    <div class="actions">
+                        <%= f.submit "Se connecter", class: 'btn btn-outline-info' %>
+                    </div>
+                    <% end %>
+                    <br />
+                    <%= render "devise/shared/links" %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="d-flex col-md-6 border">
-    <div style="margin:auto;">
-<h2 class="h3 mb-3 font-weight-normal mt-2 mt-2">Connexion</h2>
-
-<br />
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field form-label-group connexion">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: ' exemple@xxx.com'%>
-  </div>
-  <br />
-
-  <div class="field connexion">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Mot de passe : ******' %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field mt-4">
-      <%= f.check_box :remember_me %>
-      <%= f.label :Se_souvenir_de_moi %>
-    </div>
-  <% end %>
-<br />
-  <div class="actions">
-    <%= f.submit "Se connecter", class: 'btn btn-outline-info' %>
-  </div>
-<% end %>
-<br />
-<%= render "devise/shared/links" %>
-</div>
-</div>
-</div>
-</div>
 </div>

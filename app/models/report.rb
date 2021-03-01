@@ -29,8 +29,9 @@ class Report < ApplicationRecord
 	enum state: {
 		pending: 0,
 		accepted: 10,
-		fixed: 20,
-		not_fixed: 30
+		working: 20,
+		fixed: 30,
+		not_fixed: 99
 	}
 
 	protected

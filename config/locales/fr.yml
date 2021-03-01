@@ -3,5 +3,6 @@ fr:
     state:
       pending: 'En attente'
       accepted: 'Accepté'
+      working: 'En cours'
       fixed: 'Résolu'
-      not_fixed: 'Impossible à résoudre'
+      not_fixed: 'Non réalisable'

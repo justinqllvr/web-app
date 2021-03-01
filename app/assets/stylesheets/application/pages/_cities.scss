@@ -2,94 +2,142 @@
 .jumbotron {
     margin-bottom: -10px;
 }*/
-.city_pres{
+
+.city_pres {
     align-items: center;
-  /*  margin-left: 21%; */
-}
-.city_title{
-    display: flex;
-    flex-direction: row;
-    margin: 5%;
-    color: #8B5CFB;
-}
-.city_name{
-      padding: 7px 15px 7px 15px ;
-      border-radius : 7px ;
-      background-color: white;
-      color: white;
-      border: none;
-      background-image: linear-gradient(to right,#188FB1, #5574D9);
-      font-size: 130%;
+    /*  margin-left: 21%; */
 }
 
-.b_city{
-    color: grey;
-    margin: 10px;
+.city_title {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+    
+    h3 {
+        width: 80%;
+        color: #8b5cfb;
+        font-weight: 700;
+    }
 }
-.nav-pills .nav-link.active {
-    transition-duration: 0.4s;
-    padding: 7px 15px 7px 15px;
-    border-radius : 5px ;
+
+.city_name {
+    position: relative;
+    /* padding: 7px 15px 7px 15px;
+    border-radius: 7px;
     background-color: white;
     color: white;
     border: none;
-    background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+    background-image: linear-gradient(to right, #188fb1, #5574d9);
+    font-size: 130%; */
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 3px;
+        width: 100%;
+        background-color: #8b5cfb;
+        border-radius: 4px;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        /* height: 7vh;
+        line-height: 4.5vh;
+        border-radius: 7px;
+        background-color: white;
+        color: white;
+        border: none;
+        background-image: linear-gradient(to right, #188fb1, #5574d9);
+        font-size: 3vh; */
+    }
 }
-.b_city:hover{
-      transition-duration: 0.4s;
-      padding: 7px 15px 7px 15px ;
-      border-radius : 5px ;
-      background-color: white;
-      color: white;
-      border: none;
-      background-image: linear-gradient(to right, #8B5CFB, #5574D9);
+
+.nav-pills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 8px 0;
 }
-.b_city:hover a{
+
+.b_city {
+    color: grey;
+    margin: 4px 8px;
+    padding: 7px 15px 7px 15px;
+    border-radius: 5px;
+
+    &:hover {
+        transition-duration: 0.4s;
+        background-color: white;
+        color: white;
+        background-image: linear-gradient(to right, #8b5cfb, #5574d9);
+
+        a {
+            color: white;
+        }
+    }
+}
+
+.nav-pills .nav-link.active {
+    transition-duration: 0.4s;
+    padding: 7px 15px 7px 15px;
+    border-radius: 5px;
+    background-color: white;
     color: white;
+    border: none;
+    background-image: linear-gradient(to right, #8b5cfb, #5574d9);
 }
 
 .title_cities {
-  color: #8B5CFB;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+    color: #8b5cfb;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .cities_table {
-  width: 30vw;
-  background-color: blue;
-  margin: 0px auto;
+    width: 30vw;
+    background-color: blue;
+    margin: 0px auto;
 }
 
 .cities_thead {
-  background-color: white;
-  border-bottom: 1px solid #5474D8;
-  font-family: 'Source Sans Pro', sans-serif;
-  text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #5474d8;
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
 }
 @media only screen and (max-width: 1000px) {
-    .city_name {
-      height: 7vh;
-      line-height: 4.5vh;
-      border-radius : 7px ;
-      background-color: white;
-      color: white;
-      border: none;
-      background-image: linear-gradient(to right,#188FB1, #5574D9);
-      font-size: 3vh;
-    }
     .city_title h3 {
         height: 7vh;
         line-height: 6.5vh;
-        color: #8B5CFB;
+        color: #8b5cfb;
         font-size: 2.5vh;
-      }
-    .city_title{
+    }
+    .city_title {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        margin: 5%;
-        color: #8B5CFB;
-      }
+        margin: 16px 5%;
+        color: #8b5cfb;
     }
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        width: 80%;
+        margin: 16px 0;
+        padding: 0;
+
+        .macard {
+            width: 100%;
+        }
+    }
+}
