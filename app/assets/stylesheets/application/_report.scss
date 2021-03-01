@@ -74,7 +74,7 @@ $purp: #8b5cfb;
             margin-top: -24px;
             color: red;
 
-            &:empty() {
+            &:empty {
                 margin-top: 0px;
             }
         }
