@@ -77,7 +77,7 @@ class ReportsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_report
-      @city = City.find(current_user.id)
+      # @city = City.find(current_user.id)
       @report = Report.find(params[:id])
     end
 
