@@ -1,21 +1,25 @@
 <div class="container-fluid">
     <div class="row no-margin">
-        <div class="col-md-6 mt-5 report-display-container">
-            <div class="report-display-body" style="margin-top: 1rem!important">
+        <div class="col-md-6 report-display-container">
+            <div class="report-display-body">
+                <%= link_to 'Retour', report_path(), class: 'back-button' %>
                 <h1 class="mt-3"><%= @report.title %></h1>
                 <%= image_tag @report.picture.url(angle: :exif), class: 'img-fluid' %>
-                <span class="badge badge-primary"><%= @report.likes.count %> soutiens</span>
-                
+                               
+                <div class="report-item-info">
+                    <p class="text-muted">Signalé par <%= @report.user %> le <%= @report.created_at.strftime "%d/%m/%Y" %></p>
+                    <span><%= @report.likes.count %> soutiens</span>
+                </div>
                 <p><%= @report.text %></p>
-                <p class="text-muted" style="">Signalé par <%= @report.user %> le <%= @report.created_at.strftime "%d/%m/%Y" %></p>
-                <div class="d-flex" style="flex-direction: row;">
+                
+                <div class="report-item-button">
                     <% if current_user %>
                         <%= link_to 'Edit', edit_report_path(@report), class: 'btn btn-info' if @report.user == current_user || current_user.admin %>
                         <% existing_like = @report.likes.find { |like| like.user_id == current_user.id} %>
                         <% if existing_like %>
-                        <%= button_to 'Je ne soutiens plus', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger ' %>
+                            <%= button_to 'Je ne soutiens plus', report_like_path(@report, existing_like), method: :delete, class: 'btn btn-danger ' %>
                         <% else %>
-                        <%= button_to 'Je soutiens', report_likes_path(@report), method: :post, class: 'btn btn-success ' %>
+                            <%= button_to 'Je soutiens', report_likes_path(@report), method: :post, class: 'btn btn-success ' %>
                         <% end %>
                     <% end %>
                 </div>
