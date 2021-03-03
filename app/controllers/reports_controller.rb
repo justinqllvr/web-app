@@ -21,6 +21,9 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @cities = City.all
+    @can = @cities.find(@report.city_id).users.first().id === current_user.id
+    get_address
   end
 
   # GET /reports/new
@@ -87,8 +90,16 @@ class ReportsController < ApplicationController
     end
 
     def already_liked?
-  Like.where(user_id: current_user.id, report_id:
-  params[:report_id]).exists?
-end
+      Like.where(user_id: current_user.id, report_id:
+      params[:report_id]).exists?
+    end
+
+    def get_address
+      result = Geocoder.search([@report.latitude, @report.longitude])
+      begin
+        @address = result.first.address.split(', ')[0, 3].join(', ')
+      rescue
+      end
+    end
 
 end
