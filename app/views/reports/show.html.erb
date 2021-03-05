@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <%= simple_form_for @report, url: report_path(update_type: 'fixed'), method: :patch, remote: true do |f| %>
+            <%= simple_form_for @report, url: report_path(update_type: 'fixed'), method: :patch do |f| %>
             <div class="report-admin-row row">
                 <div class="report-admin-item col-6">
                     <div class="img-area">
@@ -120,6 +120,7 @@
                     <%= f.input :done_picture, :label => "Importer une image", class: 'form-control-file' %>
                 </div>
                 <div class="report-admin-item col-6">
+                    <%= f.hidden_field :state, :value => 'fixed' %>
                     <%= f.input :resolution_description, :label => "Description", placeholder: 'Description du signalement', class: 'form-control' %>
                     <%= f.input :resolution_date, :label => "Date", placeholder: 'JJ/MM/AAAA', class: 'form-control' %>
                 </div>
@@ -148,9 +149,10 @@
                 </div>
             </div>
 
-            <%= simple_form_for @report, url: report_path(update_type: 'not_fixed'), method: :patch, remote: true do |f| %>
+            <%= simple_form_for @report, url: report_path(update_type: 'not_fixed'), method: :patch do |f| %>
             <div class="report-admin-row row d-flex justify-content-center">
                 <div class="report-admin-item col-6">
+                    <%= f.hidden_field :state, :value => 'not_fixed' %>
                     <%= f.input :infeasible_reason, :label => "Description", placeholder: 'Raison de refus', class: 'form-control' %>
                 </div>
             </div>
@@ -163,7 +165,7 @@
                 </div>
             </div>
             <% end %>
-            
+
         <% end %>
     </div>
     <% end %>
