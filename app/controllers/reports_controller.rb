@@ -22,7 +22,7 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     @cities = City.all
-    @can = @cities.find(@report.city_id).users.first().id === current_user.id
+    @can = current_user && @cities.find(@report.city_id).users.first().id === current_user.id
     get_address
   end
 
@@ -54,9 +54,20 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
-  def update
+  def update 
     respond_to do |format|
-      if @report.update(report_params)
+      if params[:update_type] == 'accepted' #UPDATE REPORT STATE TO ACCEPTED
+        @updated = Report.where(:id => params[:id]).update_all(:state => 10)
+      elsif params[:update_type] == 'not_fixed' #UPDATE REPORT STATE TO NOT FIXED
+        @updated = Report.where(:id => params[:id]).update_all(:state => 30)
+      elsif params[:update_type] == 'fixed' #FIXED REPORT
+        @updated = @report.update(fixed_report_params)
+      elsif params[:update_type] == 'not_fixed' #REPORT WAS PASSED TO NOT FIXED
+        @updated = @report.update(not_fixed_report_params)
+      else #CLASSICAL UPDATE
+        @updated = @report.update(report_params)
+      end
+      if @updated
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
@@ -87,6 +98,14 @@ class ReportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
       params.require(:report).permit(:title, :text, :latitude, :longitude, :picture)
+    end
+
+    def fixed_report_params
+      params.require(:report).permit(:state, :done_picture, :resolution_description, :resolution_date)
+    end
+
+    def not_fixed_report_params
+      params.require(:report).permit(:state, :infeasible_reason)
     end
 
     def already_liked?

@@ -20,18 +20,18 @@ class Report < ApplicationRecord
 	belongs_to :city, optional: true
 	has_many :likes, dependent: :destroy
 
-	validates_presence_of :title, :latitude, :longitude
+	validates_presence_of :title, :latitude, :longitude, :text
 
 	scope :ordered_by_likes, -> { left_joins(:likes).group(:id).order('COUNT(likes.id) DESC') }
 
 	mount_uploader :picture, ImageUploader
+	mount_uploader :done_picture, ImageUploader
 
 	enum state: {
 		pending: 0,
 		accepted: 10,
-		working: 20,
-		fixed: 30,
-		not_fixed: 99
+		fixed: 20,
+		not_fixed: 30
 	}
 
 	protected

@@ -64,8 +64,8 @@ $purp: #8b5cfb;
             font-weight: bold;
 
             &:hover {
-                border: solid 1px #8b5cfb;
-                color: #8b5cfb;
+                background-color: #8b5cfb;
+                color: white;
             }
             transition: all 0.3s ease-out;
         }
@@ -256,14 +256,26 @@ textarea {
             margin: 0 !important;
         }
 
-        img {
-            background-image: linear-gradient(to right, #8b5cfb, #5574d9);
-            object-fit: cover;
-            border-radius: 8px;
+        .report-img-container {
+            position: relative;
             width: 100%;
-            height: 33vh;
-            opacity: 0.8;
+
+            span {
+                position: absolute;
+                top: 16px;
+                left: 16px;
+            }
+
+            img {
+                background-image: linear-gradient(to right, #8b5cfb, #5574d9);
+                object-fit: cover;
+                border-radius: 8px;
+                width: 100%;
+                height: 33vh;
+                opacity: 0.8;
+            }
         }
+        
 
         .report-item-info {
             display: flex;
@@ -301,6 +313,17 @@ textarea {
                 .btn {
                     width: 100%;
                 
+                    &.btn-mva {
+                        border: 2px solid $purp;
+                        color: black;
+                        font-weight: bold;
+                        transition: all 0.3s ease-out;
+
+                        &.active, &:hover {
+                            background-image: linear-gradient(to right, #8b5cfb, #5574d9);
+                            color: white;
+                        }
+                    }
                 }
             }
         }
@@ -308,21 +331,83 @@ textarea {
 }
 
 .report-admin-container {
+    padding: 64px 0;
 
     h2 {
+        position: relative;
         color: $purp;
         text-align: center;
         margin: 32px 0;
+        font-weight: bold;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform:translateX(-50%);
+            display: inline-block;
+            height: 0;
+            width: 0;
+            border-top: 8px solid $purp;
+            border-right: 8px solid transparent;
+            border-left: 8px solid transparent;
+        }
     }
 
     .report-admin-row {
 
         .report-admin-item {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
             height: 25vh;
+
+            .btn__validate__container {
+                .btn {
+                    background-image: linear-gradient(to right, #8b5cfb, #5574d9);
+                    border: $purp;
+                    border-radius: 16px;
+                }
+            }
+
+            .form-group {
+                width: 60%;
+
+                .form-control-label {
+                    color: $purp;
+                    font-weight: bold;
+                }
+            }
+
+            .img-area {
+                background-color: #F6F7F9;
+                position: relative;
+                padding: 1rem;
+                border: 2px dashed $purp;
+                width: 60%;
+                height: 500px;
+
+                &::before {
+                    content: 'Prévisualisation de l\'image';
+                    color: black;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 0.8rem;
+                    z-index: 1;
+                }
+
+                img {
+                    z-index: 2;
+                    position: relative;
+                }
+            }
         }
     }
 }

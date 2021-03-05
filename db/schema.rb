@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_154143) do
+ActiveRecord::Schema.define(version: 2021_03_04_142833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_154143) do
     t.integer "state", default: 0
     t.text "infeasible_reason"
     t.string "done_picture"
+    t.text "resolution_description"
+    t.string "resolution_date"
     t.index ["city_id"], name: "index_reports_on_city_id"
   end
 
