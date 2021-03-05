@@ -1,7 +1,7 @@
 <%= link_to report do %>
 <div class="grid-item macard" style="background-image: url(<%=report.picture.url(angle: :exif, quality: 'auto')%>);">
     <div class="cardgradientreport">
-        <p class="badge badge-primary boutontraitementreport <%= report.state %>"><%= t 'report.state.'+report.state %></p>
+        <p class="badge badge-primary boutontraitementreport <%= report.state %>"><%= report.state %></p>
         <div class="container h-100">
             <div class="row align-items-end h-100">
                 <div class="col-md-12">

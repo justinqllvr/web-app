@@ -96,6 +96,13 @@
     <% if (@can || (current_user && current_user.admin)) && @report.state != 'pending' %>
     <div class="report-admin-container">
         <% if @report.state == 'accepted' %>
+
+            <%
+=begin%>
+            Quand "ACCEPTER" est selectionné
+            <%
+=end%>
+
             <div class="report-admin-row">
                 <div class="report-admin-item col-12">
                     <h2>Modifier l'état</h2>
@@ -103,11 +110,6 @@
                 </div>
             </div>
 
-            <%
-=begin%>
-            Quand "ACCEPTER" est selectionné
-            <%
-=end%>
             <%= simple_form_for @report, url: report_path(update_type: 'fixed'), method: :patch, remote: true do |f| %>
             <div class="report-admin-row row">
                 <div class="report-admin-item col-6">
@@ -122,6 +124,7 @@
                     <%= f.input :resolution_date, :label => "Date", placeholder: 'JJ/MM/AAAA', class: 'form-control' %>
                 </div>
             </div>
+
             <div class="report-admin-row">
                 <div class="report-admin-item col-12">
                     <div class="btn__validate__container">
@@ -138,16 +141,29 @@
         Quand "NE PAS RESOUDRE" est selectionné
         <%
 =end%>
-        <%
-=begin%>
-        <div class="report-admin-row">
-            <div class="report-admin-item col-12">
-                <span>OUI</span>
+            <div class="report-admin-row">
+                <div class="report-admin-item col-12">
+                    <h2>Pourquoi ?</h2>
+                    <p>Vous avez souhaité de refuser le signalement, merci d'indiquer une raison afin d'avertir de notifier les utilisateurs</p>
+                </div>
             </div>
-        </div>
-        <%
-=end%>
 
+            <%= simple_form_for @report, url: report_path(update_type: 'not_fixed'), method: :patch, remote: true do |f| %>
+            <div class="report-admin-row row d-flex justify-content-center">
+                <div class="report-admin-item col-6">
+                    <%= f.input :infeasible_reason, :label => "Description", placeholder: 'Raison de refus', class: 'form-control' %>
+                </div>
+            </div>
+
+            <div class="report-admin-row">
+                <div class="report-admin-item col-12">
+                    <div class="btn__validate__container">
+                        <%= f.submit 'Refuser', class: 'btn btn-primary' %>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            
         <% end %>
     </div>
     <% end %>
